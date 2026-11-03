@@ -118,3 +118,8 @@
         display: none;
     }
 }
+
+.hero__video,
+.hero__video * {
+    border-radius: 0 !important;
+}

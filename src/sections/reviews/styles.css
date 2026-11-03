@@ -236,3 +236,8 @@
         line-height: 1.5;
     }
 }
+
+.reviews__player,
+.reviews__player * {
+    border-radius: 0 !important;
+}
