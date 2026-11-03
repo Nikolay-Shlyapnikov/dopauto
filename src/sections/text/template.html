@@ -1,9 +1,9 @@
-<div class="dl dl-grid-bg text {{if settings.layoutBelow 'text--below'}} {{if (eql settings.word 'ДЕТАЛИ') 'text--word'}}" style="--indent: {{if settings.line2Indent settings.line2Indent 245}}; --pw: {{if settings.paragraphsWidth settings.paragraphsWidth 312}}; --left: {{if settings.headingLeft settings.headingLeft 244}}">
+<div class="dl dl-grid-bg text {{if settings.layoutBelow 'text--below'}} {{if (eql settings.word 'ДЕТАЛИ') 'text--word'}} {{if (eql settings.word 'МАТЕРИАЛ') 'text--material'}}" style="--indent: {{if settings.line2Indent settings.line2Indent 245}}; --pw: {{if settings.paragraphsWidth settings.paragraphsWidth 312}}; --left: {{if settings.headingLeft settings.headingLeft 244}}">
     {{#if (eql settings.word 'МАТЕРИАЛ')}}
         <ya-kit-intersection-controller as="bgSeen" trigger-once="1">
             <div class="text__bgword" ref={{bgSeen.elementRef}}>
                 <ya-kit-transition is-visible={{bgSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">
-                    <span class="dl-word text__bgword-inner">@@word:material@@</span>
+                    <span class="text__bgword-inner"><span class="dl-word dl-word--desktop">@@word:material@@</span><span class="dl-word dl-word--mobile">@@word:material-mobile@@</span></span>
                 </ya-kit-transition>
             </div>
         </ya-kit-intersection-controller>
@@ -11,9 +11,10 @@
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="text__inner" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
-                <h2 class="dl-h1 text__heading text__heading--mobile dl-reveal">
+                <h2 class="dl-h1 text__heading text__heading--mobile {{if settings.headingMobile 'text__heading--custom'}} dl-reveal">
                     <span class="text__line text__line--1">{{settings.line1}}</span>
                     <span class="text__line text__line--2">{{settings.line2}}</span>
+                    {{#if settings.headingMobile}}<span class="text__custom">{{settings.headingMobile}}</span>{{/if}}
                 </h2>
                 <div class="text__paragraphs dl-reveal">
 @@repeat 2@@

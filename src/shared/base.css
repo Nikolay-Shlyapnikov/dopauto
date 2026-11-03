@@ -193,14 +193,12 @@
         --dl-gutter: 16px;
     }
 
-    .dl-h1 {
-        font-size: 22px;
-        line-height: 1.1;
-    }
-
+    /* В мобильном макете все заголовки секций 25px, межстрочный 103% */
+    .dl-h1,
     .dl-h2,
     .dl-banner-title {
-        font-size: 22px;
+        font-size: 25px;
+        line-height: 1.03;
     }
 
     .dl-text {
