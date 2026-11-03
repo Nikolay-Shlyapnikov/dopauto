@@ -16,8 +16,8 @@
 .catalog__word {
     position: absolute;
     top: 50%;
-    left: calc(-16 * var(--px));
-    width: calc(1474 * var(--px));
+    left: 0;
+    width: 100%;
     color: var(--dl-black);
     transform: translateY(-75%);
 }

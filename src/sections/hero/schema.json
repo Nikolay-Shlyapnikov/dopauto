@@ -24,26 +24,28 @@
       "$ref": "#/definitions/VideoModel",
       "title": "Фоновое видео для телефона"
     },
-    "modules": {
-      "type": "array",
-      "title": "Преимущества внизу экрана",
-      "items": {
-        "type": "object",
+    "@@repeat": [
+      {
+        "count": 2,
         "properties": {
-          "icon": {
+          "usp@@i@@Icon": {
             "$ref": "#/definitions/ImageModel",
-            "title": "Иконка"
+            "title": "Преимущество @@i@@: иконка"
           },
-          "text": {
+          "usp@@i@@Text": {
             "$ref": "#/definitions/TextArea",
-            "title": "Текст"
+            "title": "Преимущество @@i@@: текст"
           }
-        }
-      },
-      "default": [
-        { "text": "Бесплатная\nдоставка" },
-        { "text": "На 20-25% дешевле,\nчем на маркетплейсах" }
-      ]
-    }
+        },
+        "defaults": [
+          {
+            "usp@@i@@Text": "Бесплатная\nдоставка"
+          },
+          {
+            "usp@@i@@Text": "На 20-25% дешевле,\nчем на маркетплейсах"
+          }
+        ]
+      }
+    ]
   }
 }

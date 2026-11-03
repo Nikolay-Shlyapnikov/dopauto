@@ -1,23 +1,19 @@
-<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
-    <ya-kit-section-layout-row>
-        <div class="dl dl-grid-bg usp">
-            <ya-kit-intersection-controller as="seen" trigger-once="1">
-                <div class="dl-container" ref={{seen.elementRef}}>
-                    <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
-                        {{#each settings.modules as |module|}}
-                            <div class="usp__card dl-reveal">
-                                {{#if module.image.filePath}}
-                                    <ya-kit-image class="usp__image" src={{module.image}} fit="cover" enable-paranja="{{false}}" />
-                                {{/if}}
-                                <p class="usp__text">
-                                    {{#if module.prefix}}<span class="usp__prefix">{{module.prefix}} </span>{{/if}}<span class="usp__value">{{module.value}}</span>
-                                    <span class="usp__caption">{{module.caption}}</span>
-                                </p>
-                            </div>
-                        {{/each}}
-                    </ya-kit-transition>
+<div class="dl dl-grid-bg usp">
+    <ya-kit-intersection-controller as="seen" trigger-once="1">
+        <div class="dl-container" ref={{seen.elementRef}}>
+            <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
+@@repeat 3@@
+                <div class="usp__card dl-reveal">
+                    {{#if settings.card@@i@@Image.filePath}}
+                        <ya-kit-image class="usp__image" src={{settings.card@@i@@Image}} fit="cover" enable-paranja="{{false}}" />
+                    {{/if}}
+                    <p class="usp__text">
+                        {{#if settings.card@@i@@Prefix}}<span class="usp__prefix">{{settings.card@@i@@Prefix}} </span>{{/if}}<span class="usp__value">{{settings.card@@i@@Value}}</span>
+                        <span class="usp__caption">{{settings.card@@i@@Caption}}</span>
+                    </p>
                 </div>
-            </ya-kit-intersection-controller>
+@@end@@
+            </ya-kit-transition>
         </div>
-    </ya-kit-section-layout-row>
-</ya-kit-section-layout>
+    </ya-kit-intersection-controller>
+</div>

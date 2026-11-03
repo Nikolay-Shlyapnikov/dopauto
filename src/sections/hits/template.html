@@ -1,32 +1,28 @@
-<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
-    <ya-kit-section-layout-row>
-        <div class="dl dl-grid-bg hits">
-            <ya-kit-intersection-controller as="seen" trigger-once="1">
-                <div ref={{seen.elementRef}}>
-                    <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" easing="ease-out">
-                        <h2 class="dl-h1 hits__title dl-reveal">{{settings.titleText}}</h2>
-                    </ya-kit-transition>
-                </div>
-            </ya-kit-intersection-controller>
-            <div class="dl-container hits__shelf">
-                <ya-kit-featured-products-controller data-source={{settings.source}} as="products" count="{{settings.count}}">
-                    <ya-kit-carousel columns="4" columns-touch="2" h-gap="200" controls-alignment="edges" controls-size="md">
-                        {{#each products.model as |item|}}
-                            <ya-kit-product-snippet product={{item}} enable-button="{{true}}" enable-badges="{{true}}" />
-                        {{/each}}
-                    </ya-kit-carousel>
-                </ya-kit-featured-products-controller>
-            </div>
-            <ya-kit-intersection-controller as="wordSeen" trigger-once="1">
-                <div class="hits__word-box" ref={{wordSeen.elementRef}}>
-                    <ya-kit-transition is-visible={{wordSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">
-                        <div class="hits__word">
-                            <span class="dl-word dl-word--desktop">@@word:kachestvo@@</span>
-                            <span class="dl-word dl-word--mobile">@@word:kachestvo-mobile@@</span>
-                        </div>
-                    </ya-kit-transition>
-                </div>
-            </ya-kit-intersection-controller>
+<div class="dl dl-grid-bg hits">
+    <ya-kit-intersection-controller as="seen" trigger-once="1">
+        <div ref={{seen.elementRef}}>
+            <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" easing="ease-out">
+                <h2 class="dl-h1 hits__title dl-reveal">{{settings.titleText}}</h2>
+            </ya-kit-transition>
         </div>
-    </ya-kit-section-layout-row>
-</ya-kit-section-layout>
+    </ya-kit-intersection-controller>
+    <div class="dl-container hits__shelf">
+        <ya-kit-featured-products-controller data-source={{settings.source}} as="products" count="{{settings.count}}">
+            <ya-kit-carousel columns="4" columns-touch="2" h-gap="200" controls-alignment="edges" controls-size="md">
+                {{#each products.model as |item|}}
+                    <ya-kit-product-snippet product={{item}} enable-button="{{true}}" enable-badges="{{true}}" />
+                {{/each}}
+            </ya-kit-carousel>
+        </ya-kit-featured-products-controller>
+    </div>
+    <ya-kit-intersection-controller as="wordSeen" trigger-once="1">
+        <div class="hits__word-box" ref={{wordSeen.elementRef}}>
+            <ya-kit-transition is-visible={{wordSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">
+                <div class="hits__word">
+                    <span class="dl-word dl-word--desktop">@@word:kachestvo@@</span>
+                    <span class="dl-word dl-word--mobile">@@word:kachestvo-mobile@@</span>
+                </div>
+            </ya-kit-transition>
+        </div>
+    </ya-kit-intersection-controller>
+</div>

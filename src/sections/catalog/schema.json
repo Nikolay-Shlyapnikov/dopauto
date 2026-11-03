@@ -7,34 +7,25 @@
       "title": "Заголовок",
       "default": "Каталог"
     },
-    "modules": {
-      "type": "array",
-      "title": "Категории",
-      "items": {
-        "type": "object",
+    "@@repeat": [
+      {
+        "count": 8,
         "properties": {
-          "title": {
-            "type": "string",
-            "title": "Название"
-          },
-          "image": {
-            "$ref": "#/definitions/ImageModel",
-            "title": "Изображение (PNG с прозрачным фоном)"
-          },
-          "url": {
-            "$ref": "#/definitions/LinkSource",
-            "title": "Ссылка"
-          }
-        }
-      },
-      "default": [
-        { "title": "Коврики в салон" },
-        { "title": "Коврики в багажник" },
-        { "title": "Брызговики" },
-        { "title": "Клипсы крепления ковриков" },
-        { "title": "Поддоны АКБ" },
-        { "title": "Поддоны порогов" }
-      ]
-    }
+          "category@@i@@Title": { "type": "string", "title": "Категория @@i@@: название (пусто — не показывать)" },
+          "category@@i@@Image": { "$ref": "#/definitions/ImageModel", "title": "Категория @@i@@: фото (PNG с прозрачным фоном)" },
+          "category@@i@@Url": { "$ref": "#/definitions/LinkSource", "title": "Категория @@i@@: ссылка" }
+        },
+        "defaults": [
+          { "category@@i@@Title": "Коврики в салон" },
+          { "category@@i@@Title": "Коврики в багажник" },
+          { "category@@i@@Title": "Брызговики" },
+          { "category@@i@@Title": "Клипсы крепления" },
+          { "category@@i@@Title": "Поддон АКБ" },
+          { "category@@i@@Title": "Поддоны порогов" },
+          { "category@@i@@Title": "" },
+          { "category@@i@@Title": "" }
+        ]
+      }
+    ]
   }
 }

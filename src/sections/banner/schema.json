@@ -30,29 +30,40 @@
       "$ref": "#/definitions/ImageModel",
       "title": "Фон для телефона"
     },
-    "modules": {
-      "type": "array",
-      "title": "Кнопки",
-      "items": {
-        "type": "object",
+    "imageHeight": {
+      "type": "number",
+      "title": "Высота картинки для компьютера, px (при ширине 1440)",
+      "default": 181
+    },
+    "@@repeat": [
+      {
+        "count": 3,
         "properties": {
-          "text": {
+          "button@@i@@Text": {
             "type": "string",
-            "title": "Текст кнопки"
+            "title": "Кнопка @@i@@: текст (пусто — не показывать)"
           },
-          "url": {
+          "button@@i@@Url": {
             "$ref": "#/definitions/LinkSource",
-            "title": "Ссылка"
+            "title": "Кнопка @@i@@: ссылка"
           },
-          "mobileOnly": {
+          "button@@i@@MobileOnly": {
             "type": "boolean",
-            "title": "Показывать только на телефоне"
+            "title": "Кнопка @@i@@: только на телефоне"
           }
-        }
-      },
-      "default": [
-        { "text": "Заказать" }
-      ]
-    }
+        },
+        "defaults": [
+          {
+            "button@@i@@Text": "Заказать"
+          },
+          {
+            "button@@i@@Text": ""
+          },
+          {
+            "button@@i@@Text": ""
+          }
+        ]
+      }
+    ]
   }
 }

@@ -31,6 +31,25 @@
     object-fit: cover;
 }
 
+.hero__media {
+    pointer-events: none;
+}
+
+.hero__video video::-webkit-media-controls,
+.hero__video video::-webkit-media-controls-enclosure {
+    display: none !important;
+}
+
+.hero__video button,
+.hero__video [role='slider'],
+.hero__video [role='progressbar'],
+.hero__video [class*='ontrol'],
+.hero__video [class*='rogress'],
+.hero__video [class*='olume'],
+.hero__video [class*='ute'] {
+    display: none !important;
+}
+
 .hero__content {
     position: relative;
     display: flex;

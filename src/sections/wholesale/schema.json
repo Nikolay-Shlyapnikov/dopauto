@@ -21,9 +21,13 @@
       "$ref": "#/definitions/LinkSource",
       "title": "Ссылка кнопки"
     },
-    "image": {
+    "imageDesktop": {
       "$ref": "#/definitions/ImageModel",
-      "title": "Фото"
+      "title": "Фото для компьютера"
+    },
+    "imageMobile": {
+      "$ref": "#/definitions/ImageModel",
+      "title": "Фото для телефона"
     }
   }
 }

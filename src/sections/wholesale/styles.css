@@ -1,6 +1,5 @@
 .wholesale {
     --px: calc(100vw / 1440);
-    overflow: hidden;
     padding: calc(76 * var(--px) + 70px) 0 100px;
 }
 
@@ -52,7 +51,13 @@
 }
 
 .wholesale__text {
-    max-width: 380px;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 420px;
+}
+
+.wholesale__image--mobile {
+    display: none;
 }
 
 .wholesale__title {
@@ -87,6 +92,14 @@
         flex-direction: column;
         align-items: stretch;
         gap: 24px;
+    }
+
+    .wholesale__image--desktop {
+        display: none;
+    }
+
+    .wholesale__image--mobile {
+        display: block;
     }
 
     .wholesale__media {

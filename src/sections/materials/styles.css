@@ -3,6 +3,7 @@
     justify-content: center;
     gap: 10px;
     padding: 0 var(--dl-gutter) 30px;
+    background: var(--dl-white);
 }
 
 .materials__tab {
@@ -145,10 +146,19 @@
         padding-bottom: 20px;
     }
 
+    .materials__slide {
+        animation: none;
+    }
+
     .materials__panel {
         position: static;
         width: auto;
         min-width: 0;
+        min-height: 400px;
+    }
+
+    .materials__card {
+        transform: none;
     }
 
     .materials__point .dl-plus {

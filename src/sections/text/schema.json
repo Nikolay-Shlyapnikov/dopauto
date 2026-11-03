@@ -12,64 +12,24 @@
       "title": "Заголовок, строка 2",
       "default": "А у нас — внимание к каждому."
     },
-    "layout": {
-      "type": "string",
-      "title": "Раскладка",
-      "enum": ["split", "stair"],
-      "enumNames": ["Заголовок слева, текст в правой колонке", "Текст под второй строкой заголовка"],
-      "default": "split"
-    },
-    "line1Indent": {
-      "type": "number",
-      "title": "Отступ строки 1, px при ширине 1440",
-      "default": 0
-    },
-    "line2Indent": {
-      "type": "number",
-      "title": "Отступ строки 2, px при ширине 1440",
-      "default": 245
-    },
-    "paragraphsIndent": {
-      "type": "number",
-      "title": "Отступ текста, px при ширине 1440 (для раскладки «под строкой»)",
-      "default": 0
-    },
-    "word": {
-      "type": "string",
-      "title": "Крупное слово на фоне",
-      "enum": ["none", "detali", "material"],
-      "enumNames": ["Нет", "Детали", "Материал"],
-      "default": "none"
-    },
-    "wordPosition": {
-      "type": "string",
-      "title": "Где крупное слово",
-      "enum": ["top", "bottom"],
-      "enumNames": ["Сверху, за заголовком", "Снизу, выходит из-за баннера"],
-      "default": "bottom"
-    },
-    "modules": {
-      "type": "array",
-      "title": "Абзацы",
-      "items": {
-        "type": "object",
+    "@@repeat": [
+      {
+        "count": 2,
         "properties": {
-          "number": {
-            "type": "string",
-            "title": "Номер"
+          "paragraph@@i@@Number": { "type": "string", "title": "Абзац @@i@@: номер" },
+          "paragraph@@i@@Text": { "$ref": "#/definitions/TextArea", "title": "Абзац @@i@@: текст" }
+        },
+        "defaults": [
+          {
+            "paragraph@@i@@Number": "01",
+            "paragraph@@i@@Text": "Наша история — это 10 лет работы в оптово-розничной торговле. За каждым нашим товаром стоит осознанный выбор: качественные материалы, оригинальная продукция и польза для вашего автомобиля."
           },
-          "text": {
-            "$ref": "#/definitions/TextArea",
-            "title": "Текст"
+          {
+            "paragraph@@i@@Number": "",
+            "paragraph@@i@@Text": ""
           }
-        }
-      },
-      "default": [
-        {
-          "number": "01",
-          "text": "Наша история — это 10 лет работы в оптово-розничной торговле. За каждым нашим товаром стоит осознанный выбор: качественные материалы, оригинальная продукция и польза для вашего автомобиля."
-        }
-      ]
-    }
+        ]
+      }
+    ]
   }
 }

@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 190px;
+    aspect-ratio: 1440 / var(--ratio, 181);
+    min-height: 160px;
     padding: 36px var(--dl-gutter);
     overflow: hidden;
     background: var(--dl-black);
@@ -72,6 +73,7 @@
     }
 
     .banner {
+        aspect-ratio: auto;
         min-height: 160px;
         padding: 28px var(--dl-gutter);
     }

@@ -16,31 +16,80 @@
       "$ref": "#/definitions/LinkSource",
       "title": "Ссылка кнопки"
     },
-    "modules": {
-      "type": "array",
-      "title": "Марки",
-      "items": {
-        "type": "object",
+    "@@repeat": [
+      {
+        "count": 18,
         "properties": {
-          "name": {
+          "brand@@i@@Name": {
             "type": "string",
-            "title": "Название"
+            "title": "Марка @@i@@: название"
           },
-          "logo": {
+          "brand@@i@@Logo": {
             "$ref": "#/definitions/ImageModel",
-            "title": "Логотип (цветной, PNG)"
+            "title": "Марка @@i@@: логотип (цветной PNG)"
           },
-          "url": {
+          "brand@@i@@Url": {
             "$ref": "#/definitions/LinkSource",
-            "title": "Ссылка"
+            "title": "Марка @@i@@: ссылка"
           }
-        }
-      },
-      "default": [
-        { "name": "Audi" }, { "name": "BMW" }, { "name": "Changan" }, { "name": "Chery" }, { "name": "GAC" }, { "name": "Geely" },
-        { "name": "Haval" }, { "name": "Hyundai" }, { "name": "Kia" }, { "name": "Lada" }, { "name": "Mazda" }, { "name": "Mercedes-Benz" },
-        { "name": "Nissan" }, { "name": "Renault" }, { "name": "Skoda" }, { "name": "Tenet" }, { "name": "Toyota" }, { "name": "Volkswagen" }
-      ]
-    }
+        },
+        "defaults": [
+          {
+            "brand@@i@@Name": "Audi"
+          },
+          {
+            "brand@@i@@Name": "BMW"
+          },
+          {
+            "brand@@i@@Name": "Changan"
+          },
+          {
+            "brand@@i@@Name": "Chery"
+          },
+          {
+            "brand@@i@@Name": "GAC"
+          },
+          {
+            "brand@@i@@Name": "Geely"
+          },
+          {
+            "brand@@i@@Name": "Haval"
+          },
+          {
+            "brand@@i@@Name": "Hyundai"
+          },
+          {
+            "brand@@i@@Name": "Kia"
+          },
+          {
+            "brand@@i@@Name": "Lada"
+          },
+          {
+            "brand@@i@@Name": "Mazda"
+          },
+          {
+            "brand@@i@@Name": "Mercedes-Benz"
+          },
+          {
+            "brand@@i@@Name": "Nissan"
+          },
+          {
+            "brand@@i@@Name": "Renault"
+          },
+          {
+            "brand@@i@@Name": "Skoda"
+          },
+          {
+            "brand@@i@@Name": "Tenet"
+          },
+          {
+            "brand@@i@@Name": "Toyota"
+          },
+          {
+            "brand@@i@@Name": "Volkswagen"
+          }
+        ]
+      }
+    ]
   }
 }

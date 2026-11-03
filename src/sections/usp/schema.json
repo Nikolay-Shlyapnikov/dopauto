@@ -2,35 +2,21 @@
   "title": "",
   "type": "object",
   "properties": {
-    "modules": {
-      "type": "array",
-      "title": "Карточки",
-      "items": {
-        "type": "object",
+    "@@repeat": [
+      {
+        "count": 3,
         "properties": {
-          "image": {
-            "$ref": "#/definitions/ImageModel",
-            "title": "Фото"
-          },
-          "prefix": {
-            "type": "string",
-            "title": "Текст перед цифрой"
-          },
-          "value": {
-            "type": "string",
-            "title": "Цифра"
-          },
-          "caption": {
-            "type": "string",
-            "title": "Подпись"
-          }
-        }
-      },
-      "default": [
-        { "value": "100 000+", "caption": "заказов" },
-        { "value": "40 000+", "caption": "отзывов" },
-        { "prefix": "На", "value": "20-25%", "caption": "дешевле, чем на маркетплейсах" }
-      ]
-    }
+          "card@@i@@Image": { "$ref": "#/definitions/ImageModel", "title": "Карточка @@i@@: фото" },
+          "card@@i@@Prefix": { "type": "string", "title": "Карточка @@i@@: текст перед цифрой" },
+          "card@@i@@Value": { "type": "string", "title": "Карточка @@i@@: цифра" },
+          "card@@i@@Caption": { "type": "string", "title": "Карточка @@i@@: подпись" }
+        },
+        "defaults": [
+          { "card@@i@@Prefix": "", "card@@i@@Value": "100 000+", "card@@i@@Caption": "заказов" },
+          { "card@@i@@Prefix": "", "card@@i@@Value": "40 000+", "card@@i@@Caption": "отзывов" },
+          { "card@@i@@Prefix": "На", "card@@i@@Value": "20-25%", "card@@i@@Caption": "дешевле, чем на маркетплейсах" }
+        ]
+      }
+    ]
   }
 }
