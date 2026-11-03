@@ -20,8 +20,8 @@
     align-self: stretch;
 }
 
+/* Внутри ya-kit-image заглушка лежит absolute, картинка — в потоке; позиционирование не трогаем */
 .banner__bg img {
-    position: static;
     display: block;
     width: 100%;
     height: 100%;

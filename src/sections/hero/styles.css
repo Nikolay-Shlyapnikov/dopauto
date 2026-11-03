@@ -83,30 +83,19 @@
     text-align: left;
 }
 
-/* Рамка иконки — высотой в две строки текста; всё внутри ya-kit-image растягивается на неё,
-   картинка вписывается и прижимается влево, поэтому квадратная и широкая иконки одной высоты */
+/* ya-kit-image — div с двумя img: размытая заглушка (absolute) и сама картинка (в потоке).
+   Рамка высотой в две строки текста, картинка вписывается и прижимается влево */
 .hero__usp-icon {
     position: relative;
-    display: block;
     width: 58px;
     height: 38px;
     flex-shrink: 0;
     overflow: hidden;
 }
 
-.hero__usp-icon * {
-    position: static !important;
+.hero__usp-icon img {
     width: 100% !important;
     height: 100% !important;
-    min-height: 0 !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    transform: none !important;
-}
-
-.hero__usp-icon img {
-    display: block;
     object-fit: contain !important;
     object-position: left center !important;
 }
