@@ -22,13 +22,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: calc(69 * var(--px));
     overflow: hidden;
 }
 
 .reviews__word {
     width: calc(867 * var(--px));
-    margin-left: calc(680 * var(--px));
+    margin-left: calc(100% - 867 * var(--px) - var(--dl-gutter));
 }
 
 .reviews__word[data-transition='custom'] {
@@ -165,13 +164,9 @@
         padding-left: var(--dl-gutter);
     }
 
-    .reviews__word-box {
-        height: 34px;
-    }
-
     .reviews__word {
-        width: 420px;
-        margin-left: -6px;
+        width: calc(100% - 2 * var(--dl-gutter));
+        margin-left: var(--dl-gutter);
     }
 
     .reviews__slider {

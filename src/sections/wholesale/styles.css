@@ -1,6 +1,6 @@
 .wholesale {
     --px: calc(100vw / 1440);
-    padding: calc(76 * var(--px) + 70px) 0 100px;
+    padding: calc((100vw - 2 * var(--dl-gutter)) * 76 / 1879 + 70px) 0 100px;
 }
 
 .wholesale__word-box {
@@ -8,13 +8,12 @@
     top: 0;
     left: 0;
     right: 0;
-    height: calc(76 * var(--px));
     overflow: hidden;
 }
 
 .wholesale__word {
-    width: calc(1879 * var(--px));
-    margin-left: calc(-60 * var(--px));
+    width: calc(100% - 2 * var(--dl-gutter));
+    margin-left: var(--dl-gutter);
 }
 
 .wholesale__word[data-transition='custom'] {

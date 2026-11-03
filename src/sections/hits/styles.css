@@ -14,7 +14,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: calc(76 * var(--px));
     overflow: hidden;
 }
 
@@ -35,10 +34,6 @@
 @media (max-width: 767px) {
     .hits {
         padding: 40px 0 120px;
-    }
-
-    .hits__word-box {
-        height: 92px;
     }
 
     .hits__word {
