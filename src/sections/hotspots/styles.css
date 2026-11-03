@@ -32,7 +32,6 @@
     width: var(--panel);
     min-width: 320px;
     display: grid;
-    grid-template-rows: 1fr auto;
     background: #111111;
     transform: translateX(100%);
     transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -60,8 +59,9 @@
     aspect-ratio: 405 / 305;
 }
 
+/* Снизу место под стрелки, чтобы текст на них не наезжал */
 .hotspots__card-body {
-    padding: 32px 38px;
+    padding: 32px 38px 80px;
 }
 
 .hotspots__card-title {
@@ -71,6 +71,11 @@
 
 /* Стрелки листают точки по кругу, как в «Материалах» */
 .hotspots__nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
