@@ -17,12 +17,23 @@
     height: 100%;
 }
 
+/* Внутри ya-kit-image две img: заглушка и картинка. В превью заглушка встаёт в строку рядом
+   и сдвигает картинку вправо, поэтому обе растягиваем на весь фон */
+.banner__bg img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
 .banner__bg--mobile {
     display: none;
 }
 
 .banner__content {
     position: relative;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
