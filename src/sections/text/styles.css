@@ -2,26 +2,24 @@
     padding: 100px 0;
 }
 
+/* Абзацы плавают справа, заголовок занимает остальное место. Флекс тут не годится:
+   ya-kit-transition добавляет свои обёртки между .text__inner и элементами */
 .text__inner {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 40px;
+    display: flow-root;
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 var(--dl-gutter);
 }
 
-/* Обёртка ya-kit-transition не должна ломать флекс: заголовок и абзацы — прямые элементы ряда */
-.text__inner > :not(.text__heading):not(.text__paragraphs) {
-    display: contents;
-}
-
 .text__heading {
     display: flex;
-    flex: 1 1 auto;
     flex-direction: column;
-    min-width: 0;
+    overflow: hidden;
+}
+
+/* Заголовок дважды: на компьютере он после плавающих абзацев, на телефоне — перед ними */
+.text__heading--mobile {
+    display: none;
 }
 
 /* В макете вторая строка начинается с 246px из 1440 (отступ 30 + 216) */
@@ -30,11 +28,12 @@
 }
 
 .text__paragraphs {
+    float: right;
     display: flex;
     flex-direction: column;
     gap: 32px;
     width: 312px;
-    flex-shrink: 0;
+    margin-left: 40px;
 }
 
 .text__paragraph {
@@ -53,9 +52,9 @@
         padding: 60px 0;
     }
 
-    .text__inner {
-        flex-direction: column;
-        gap: 24px;
+    .text__paragraphs {
+        float: none;
+        margin: 24px 0 0;
     }
 
     .text__line--2 {
@@ -65,5 +64,17 @@
 
     .text__paragraphs {
         width: auto;
+    }
+
+    .text__heading {
+        overflow: visible;
+    }
+
+    .text__heading--mobile {
+        display: flex;
+    }
+
+    .text__heading--desktop {
+        display: none;
     }
 }
