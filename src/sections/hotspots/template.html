@@ -25,9 +25,11 @@
                     </div>
                 {{/if}}
 @@end@@
-                <ya-kit-clickable-area class="hotspots__close" on-press="{{call spot.makeChangeHandler 0}}">
-                    <span class="hotspots__close-icon"></span>
-                </ya-kit-clickable-area>
+                <div class="hotspots__nav">
+                    <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value 1) (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (subtract spot.value 1))}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                    <span class="hotspots__counter">{{spot.value}}/{{add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)}}</span>
+                    <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0))) 1 (add spot.value 1))}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                </div>
             </div>
         </div>
         <div class="hotspots__mobile">

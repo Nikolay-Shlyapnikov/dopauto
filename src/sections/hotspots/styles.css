@@ -31,6 +31,8 @@
     z-index: 2;
     width: var(--panel);
     min-width: 320px;
+    display: grid;
+    grid-template-rows: 1fr auto;
     background: #111111;
     transform: translateX(100%);
     transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -41,8 +43,7 @@
 }
 
 .hotspots__card {
-    position: absolute;
-    inset: 0;
+    grid-area: 1 / 1;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s, visibility 0.4s;
@@ -68,44 +69,17 @@
     text-transform: uppercase;
 }
 
-.hotspots__close {
-    position: absolute;
-    bottom: 24px;
-    left: -60px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
+/* Стрелки листают точки по кругу, как в «Материалах» */
+.hotspots__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 38px 26px;
 }
 
-.hotspots--open .hotspots__close {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.hotspots__close-icon {
-    position: relative;
-    display: block;
-    width: 36px;
-    height: 36px;
-    background: var(--dl-white);
-    cursor: pointer;
-}
-
-.hotspots__close-icon::before,
-.hotspots__close-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 16px;
-    height: 2px;
-    margin: -1px 0 0 -8px;
-    background: var(--dl-black);
-    transform: rotate(45deg);
-}
-
-.hotspots__close-icon::after {
-    transform: rotate(-45deg);
+.hotspots__counter {
+    font-size: 13px;
+    opacity: 0.6;
 }
 
 .hotspots__mobile {
