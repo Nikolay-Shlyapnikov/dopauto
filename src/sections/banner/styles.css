@@ -1,9 +1,10 @@
-/* Картинка — фон на весь блок (cover), высоту задаёт текст, но не меньше min-height */
+/* Картинка — фон на весь блок (cover), высоту задаёт текст. По Figma: отступы 38px,
+   баннер с одной кнопкой выходит 181px, с двухстрочным подзаголовком — 200px */
 .banner {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 240px;
+    min-height: 160px;
     overflow: hidden;
     background: var(--dl-black);
     color: var(--dl-white);
@@ -37,12 +38,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: calc(420px + 2 * var(--dl-gutter));
-    padding: 36px var(--dl-gutter);
+    max-width: calc(760px + 2 * var(--dl-gutter));
+    padding: 38px var(--dl-gutter);
 }
 
 .banner__subtitle {
-    margin-top: 8px;
+    max-width: 366px;
+    margin-top: 6px;
 }
 
 .banner__buttons {
@@ -50,7 +52,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 18px;
-    margin-top: 18px;
+    margin-top: 15px;
 }
 
 .banner__button {
@@ -93,6 +95,10 @@
 
     .banner {
         min-height: 200px;
+    }
+
+    .banner__subtitle {
+        max-width: none;
     }
 
     .banner__bg--mobile {
