@@ -1,0 +1,34 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl dl-grid-bg wholesale">
+            <ya-kit-intersection-controller as="wordSeen" trigger-once="1">
+                <div class="wholesale__word-box" ref={{wordSeen.elementRef}}>
+                    <ya-kit-transition is-visible={{wordSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">
+                        <div class="wholesale__word">
+                            <span class="dl-word">@@word:sotrudnichestvo@@</span>
+                        </div>
+                    </ya-kit-transition>
+                </div>
+            </ya-kit-intersection-controller>
+            <ya-kit-intersection-controller as="seen" trigger-once="1">
+                <div class="dl-container wholesale__inner" ref={{seen.elementRef}}>
+                    <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
+                        <div class="wholesale__media dl-reveal">
+                            {{#if settings.image.filePath}}
+                                <ya-kit-image class="wholesale__image" src={{settings.image}} fit="cover" enable-paranja="{{false}}" />
+                            {{/if}}
+                            <h2 class="dl-banner-title wholesale__title wholesale__title--overlay">{{settings.titleText}}</h2>
+                        </div>
+                        <div class="wholesale__text dl-reveal">
+                            <h2 class="dl-banner-title wholesale__title">{{settings.titleText}}</h2>
+                            <p class="dl-text">{{settings.text}}</p>
+                            {{#if settings.buttonUrl.link}}
+                                <ya-kit-link to={{settings.buttonUrl.link}} class="wholesale__cta"><span class="dl-btn dl-btn--wide">{{settings.buttonText}}</span></ya-kit-link>
+                            {{/if}}
+                        </div>
+                    </ya-kit-transition>
+                </div>
+            </ya-kit-intersection-controller>
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

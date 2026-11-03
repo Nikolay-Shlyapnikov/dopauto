@@ -1,0 +1,58 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "titleText": {
+      "type": "string",
+      "title": "Заголовок",
+      "default": "Осенние скидки 10%"
+    },
+    "subtitleText": {
+      "$ref": "#/definitions/TextArea",
+      "title": "Подзаголовок",
+      "default": "При заказе комплекта ковриков в салон + багажник"
+    },
+    "titleMobile": {
+      "type": "string",
+      "title": "Заголовок на телефоне (если отличается)",
+      "default": ""
+    },
+    "subtitleMobile": {
+      "$ref": "#/definitions/TextArea",
+      "title": "Подзаголовок на телефоне (если отличается)",
+      "default": ""
+    },
+    "imageDesktop": {
+      "$ref": "#/definitions/ImageModel",
+      "title": "Фон для компьютера"
+    },
+    "imageMobile": {
+      "$ref": "#/definitions/ImageModel",
+      "title": "Фон для телефона"
+    },
+    "modules": {
+      "type": "array",
+      "title": "Кнопки",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Текст кнопки"
+          },
+          "url": {
+            "$ref": "#/definitions/LinkSource",
+            "title": "Ссылка"
+          },
+          "mobileOnly": {
+            "type": "boolean",
+            "title": "Показывать только на телефоне"
+          }
+        }
+      },
+      "default": [
+        { "text": "Заказать" }
+      ]
+    }
+  }
+}

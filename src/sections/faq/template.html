@@ -1,0 +1,21 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl faq">
+            <div class="dl-container faq__inner">
+                <h2 class="dl-banner-title faq__title">{{settings.titleText}}</h2>
+                <div class="faq__list">
+                    {{#each settings.modules as |module, index|}}
+                        <ya-kit-accordion class="faq__item" default-expanded="{{eql index 0}}">
+                            <ya-kit-accordion-header>
+                                <span class="faq__question">{{module.question}}</span>
+                            </ya-kit-accordion-header>
+                            <ya-kit-accordion-body>
+                                <p class="faq__answer">{{module.answer}}</p>
+                            </ya-kit-accordion-body>
+                        </ya-kit-accordion>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

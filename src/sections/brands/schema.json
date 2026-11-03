@@ -1,0 +1,46 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "titleText": {
+      "type": "string",
+      "title": "Заголовок (виден только на телефоне)",
+      "default": "Марки авто"
+    },
+    "buttonText": {
+      "type": "string",
+      "title": "Текст кнопки",
+      "default": "Посмотреть все марки"
+    },
+    "buttonUrl": {
+      "$ref": "#/definitions/LinkSource",
+      "title": "Ссылка кнопки"
+    },
+    "modules": {
+      "type": "array",
+      "title": "Марки",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Название"
+          },
+          "logo": {
+            "$ref": "#/definitions/ImageModel",
+            "title": "Логотип (цветной, PNG)"
+          },
+          "url": {
+            "$ref": "#/definitions/LinkSource",
+            "title": "Ссылка"
+          }
+        }
+      },
+      "default": [
+        { "name": "Audi" }, { "name": "BMW" }, { "name": "Changan" }, { "name": "Chery" }, { "name": "GAC" }, { "name": "Geely" },
+        { "name": "Haval" }, { "name": "Hyundai" }, { "name": "Kia" }, { "name": "Lada" }, { "name": "Mazda" }, { "name": "Mercedes-Benz" },
+        { "name": "Nissan" }, { "name": "Renault" }, { "name": "Skoda" }, { "name": "Tenet" }, { "name": "Toyota" }, { "name": "Volkswagen" }
+      ]
+    }
+  }
+}

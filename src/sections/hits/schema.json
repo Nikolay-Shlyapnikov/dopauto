@@ -1,0 +1,20 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "titleText": {
+      "type": "string",
+      "title": "Заголовок",
+      "default": "Хиты продаж"
+    },
+    "source": {
+      "$ref": "#/definitions/ProductsSource",
+      "title": "Подборка товаров"
+    },
+    "count": {
+      "type": "number",
+      "title": "Сколько товаров показать",
+      "default": 8
+    }
+  }
+}

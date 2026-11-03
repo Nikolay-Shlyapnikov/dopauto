@@ -1,0 +1,102 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <ya-kit-value-controller initial-value="{{0}}" as="mat">
+            <ya-kit-value-controller initial-value="{{-1}}" as="spot">
+                <div class="dl materials">
+                    <div class="dl-grid-bg materials__tabs">
+                        <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 0}}">
+                            <span class="materials__tab {{if (eql mat.value 0) 'materials__tab--active'}}">{{settings.material1Name}}</span>
+                        </ya-kit-clickable-area>
+                        <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 1}}">
+                            <span class="materials__tab {{if (eql mat.value 1) 'materials__tab--active'}}">{{settings.material2Name}}</span>
+                        </ya-kit-clickable-area>
+                    </div>
+                    <div class="materials__slides">
+                        <div class="materials__slide {{if (eql mat.value 0) 'materials__slide--active'}}">
+                            <div class="materials__stage">
+                                {{#if settings.material1Image.filePath}}
+                                    <ya-kit-image class="materials__image" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
+                                {{/if}}
+                                {{#each settings.modules as |module, index|}}
+                                    {{#if (eql module.material "1")}}
+                                        <ya-kit-clickable-area class="materials__point" style="left: {{module.x}}%; top: {{module.y}}%" on-press="{{call spot.makeChangeHandler (if (eql spot.value index) -1 index)}}">
+                                            <span class="dl-plus {{if (eql spot.value index) 'dl-plus--active'}}"></span>
+                                        </ya-kit-clickable-area>
+                                    {{/if}}
+                                {{/each}}
+                            </div>
+                            <div class="materials__panel">
+                                <div class="materials__card materials__card--default">
+                                    <h3 class="dl-banner-title materials__title">{{settings.material1Name}}</h3>
+                                    <p class="dl-text">{{settings.material1Text}}</p>
+                                </div>
+                                {{#each settings.modules as |module, index|}}
+                                    {{#if (eql module.material "1")}}
+                                        <div class="materials__card {{if (eql spot.value index) 'materials__card--active'}}">
+                                            {{#if module.photo.filePath}}
+                                                <ya-kit-image class="materials__photo" src={{module.photo}} fit="cover" enable-paranja="{{false}}" />
+                                            {{/if}}
+                                            <div class="materials__card-body">
+                                                <h3 class="dl-banner-title materials__title">{{module.title}}</h3>
+                                                <p class="dl-text">{{module.text}}</p>
+                                                {{#if module.note}}
+                                                    <p class="materials__note">{{module.note}}</p>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                {{/each}}
+                                <div class="materials__nav">
+                                    <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 1}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                                    <span class="materials__counter">1/2</span>
+                                    <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 1}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="materials__slide {{if (eql mat.value 1) 'materials__slide--active'}}">
+                            <div class="materials__stage">
+                                {{#if settings.material2Image.filePath}}
+                                    <ya-kit-image class="materials__image" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
+                                {{/if}}
+                                {{#each settings.modules as |module, index|}}
+                                    {{#if (eql module.material "2")}}
+                                        <ya-kit-clickable-area class="materials__point" style="left: {{module.x}}%; top: {{module.y}}%" on-press="{{call spot.makeChangeHandler (if (eql spot.value index) -1 index)}}">
+                                            <span class="dl-plus {{if (eql spot.value index) 'dl-plus--active'}}"></span>
+                                        </ya-kit-clickable-area>
+                                    {{/if}}
+                                {{/each}}
+                            </div>
+                            <div class="materials__panel">
+                                <div class="materials__card materials__card--default">
+                                    <h3 class="dl-banner-title materials__title">{{settings.material2Name}}</h3>
+                                    <p class="dl-text">{{settings.material2Text}}</p>
+                                </div>
+                                {{#each settings.modules as |module, index|}}
+                                    {{#if (eql module.material "2")}}
+                                        <div class="materials__card {{if (eql spot.value index) 'materials__card--active'}}">
+                                            {{#if module.photo.filePath}}
+                                                <ya-kit-image class="materials__photo" src={{module.photo}} fit="cover" enable-paranja="{{false}}" />
+                                            {{/if}}
+                                            <div class="materials__card-body">
+                                                <h3 class="dl-banner-title materials__title">{{module.title}}</h3>
+                                                <p class="dl-text">{{module.text}}</p>
+                                                {{#if module.note}}
+                                                    <p class="materials__note">{{module.note}}</p>
+                                                {{/if}}
+                                            </div>
+                                        </div>
+                                    {{/if}}
+                                {{/each}}
+                                <div class="materials__nav">
+                                    <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 0}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                                    <span class="materials__counter">2/2</span>
+                                    <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 0}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ya-kit-value-controller>
+        </ya-kit-value-controller>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

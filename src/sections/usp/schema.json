@@ -1,0 +1,36 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "modules": {
+      "type": "array",
+      "title": "Карточки",
+      "items": {
+        "type": "object",
+        "properties": {
+          "image": {
+            "$ref": "#/definitions/ImageModel",
+            "title": "Фото"
+          },
+          "prefix": {
+            "type": "string",
+            "title": "Текст перед цифрой"
+          },
+          "value": {
+            "type": "string",
+            "title": "Цифра"
+          },
+          "caption": {
+            "type": "string",
+            "title": "Подпись"
+          }
+        }
+      },
+      "default": [
+        { "value": "100 000+", "caption": "заказов" },
+        { "value": "40 000+", "caption": "отзывов" },
+        { "prefix": "На", "value": "20-25%", "caption": "дешевле, чем на маркетплейсах" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "titleText": {
+      "type": "string",
+      "title": "Заголовок",
+      "default": "Оптовые поставки для бизнеса"
+    },
+    "text": {
+      "$ref": "#/definitions/TextArea",
+      "title": "Текст",
+      "default": "Мы работаем с розничными и оптовыми покупателями, а также юридическими лицами. У нас можно приобрести автомобильные коврики для перепродажи, оснащения торговых точек и корпоративных автопарков."
+    },
+    "buttonText": {
+      "type": "string",
+      "title": "Текст кнопки",
+      "default": "Стать партнером"
+    },
+    "buttonUrl": {
+      "$ref": "#/definitions/LinkSource",
+      "title": "Ссылка кнопки"
+    },
+    "image": {
+      "$ref": "#/definitions/ImageModel",
+      "title": "Фото"
+    }
+  }
+}

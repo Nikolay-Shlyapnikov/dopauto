@@ -92,6 +92,75 @@
     filter: brightness(1.08);
 }
 
+.dl-btn--wide {
+    width: 100%;
+    max-width: 374px;
+}
+
+.dl-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--dl-white);
+    color: var(--dl-black);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.dl-arrow:hover {
+    transform: scale(1.06);
+}
+
+.dl-arrow--outline {
+    border: 1px solid var(--dl-word);
+}
+
+.dl-plus {
+    position: relative;
+    display: block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 0 0 4px rgba(224, 5, 14, 0.55);
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.dl-plus::before,
+.dl-plus::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 2px;
+    margin: -1px 0 0 -8px;
+    background: var(--dl-white);
+}
+
+.dl-plus::after {
+    transform: rotate(90deg);
+}
+
+.dl-plus:hover {
+    transform: scale(1.12);
+}
+
+.dl-plus--active {
+    background: var(--dl-accent);
+    transform: rotate(45deg);
+}
+
+.dl-plus--active:hover {
+    transform: rotate(45deg) scale(1.12);
+}
+
 .dl-word {
     display: block;
     color: var(--dl-word);

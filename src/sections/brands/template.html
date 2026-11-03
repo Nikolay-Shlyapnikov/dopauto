@@ -1,0 +1,30 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl dl-grid-bg brands">
+            <div class="dl-container">
+                {{#if settings.titleText}}
+                    <h2 class="dl-h1 brands__title">{{settings.titleText}}</h2>
+                {{/if}}
+                <ul class="brands__grid">
+                    {{#each settings.modules as |module|}}
+                        <li class="brands__item">
+                            <ya-kit-link to={{module.url.link}} class="brands__link">
+                                <span class="brands__logo">
+                                    {{#if module.logo.filePath}}
+                                        <ya-kit-image src={{module.logo}} fit="contain" enable-paranja="{{false}}" />
+                                    {{/if}}
+                                </span>
+                                <span class="brands__name">{{module.name}}</span>
+                            </ya-kit-link>
+                        </li>
+                    {{/each}}
+                </ul>
+                {{#if settings.buttonUrl.link}}
+                    <div class="brands__cta">
+                        <ya-kit-link to={{settings.buttonUrl.link}}><span class="dl-btn dl-btn--wide brands__btn">{{settings.buttonText}}</span></ya-kit-link>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

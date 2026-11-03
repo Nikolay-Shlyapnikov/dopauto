@@ -1,0 +1,39 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl banner">
+            {{#if settings.imageDesktop.filePath}}
+                <ya-kit-image class="banner__bg banner__bg--desktop" src={{settings.imageDesktop}} fit="cover" enable-paranja="{{false}}" />
+            {{/if}}
+            {{#if settings.imageMobile.filePath}}
+                <ya-kit-image class="banner__bg banner__bg--mobile" src={{settings.imageMobile}} fit="cover" enable-paranja="{{false}}" />
+            {{/if}}
+            <ya-kit-intersection-controller as="seen" trigger-once="1">
+                <div class="banner__content" ref={{seen.elementRef}}>
+                    <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="120" easing="ease-out">
+                        <h2 class="dl-banner-title banner__title dl-reveal">
+                            <span class="{{if settings.titleMobile 'banner__desktop'}}">{{settings.titleText}}</span>
+                            {{#if settings.titleMobile}}
+                                <span class="banner__mobile">{{settings.titleMobile}}</span>
+                            {{/if}}
+                        </h2>
+                        {{#if settings.subtitleText}}
+                            <p class="dl-text banner__subtitle dl-reveal">
+                                <span class="{{if settings.subtitleMobile 'banner__desktop'}}">{{settings.subtitleText}}</span>
+                                {{#if settings.subtitleMobile}}
+                                    <span class="banner__mobile">{{settings.subtitleMobile}}</span>
+                                {{/if}}
+                            </p>
+                        {{/if}}
+                        <div class="banner__buttons dl-reveal">
+                            {{#each settings.modules as |module|}}
+                                <ya-kit-link to={{module.url.link}} class="banner__button {{if module.mobileOnly 'banner__button--mobile'}}">
+                                    <span class="dl-btn">{{module.text}}</span>
+                                </ya-kit-link>
+                            {{/each}}
+                        </div>
+                    </ya-kit-transition>
+                </div>
+            </ya-kit-intersection-controller>
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

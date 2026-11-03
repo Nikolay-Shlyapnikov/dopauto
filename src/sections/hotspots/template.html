@@ -1,0 +1,54 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <ya-kit-value-controller initial-value="{{-1}}" as="spot">
+            <div class="dl hotspots {{if (gte spot.value 0) 'hotspots--open'}}">
+                <div class="hotspots__stage">
+                    {{#if settings.image.filePath}}
+                        <ya-kit-image class="hotspots__image" src={{settings.image}} fit="cover" enable-paranja="{{false}}" />
+                    {{/if}}
+                    {{#each settings.modules as |module, index|}}
+                        <ya-kit-clickable-area class="hotspots__point" style="left: {{module.x}}%; top: {{module.y}}%" on-press="{{call spot.makeChangeHandler (if (eql spot.value index) -1 index)}}">
+                            <span class="dl-plus {{if (eql spot.value index) 'dl-plus--active'}}"></span>
+                        </ya-kit-clickable-area>
+                    {{/each}}
+                    <div class="hotspots__panel">
+                        {{#each settings.modules as |module, index|}}
+                            <div class="hotspots__card {{if (eql spot.value index) 'hotspots__card--active'}}">
+                                {{#if module.photo.filePath}}
+                                    <ya-kit-image class="hotspots__photo" src={{module.photo}} fit="cover" enable-paranja="{{false}}" />
+                                {{/if}}
+                                <div class="hotspots__card-body">
+                                    <h3 class="dl-banner-title hotspots__card-title">{{module.title}}</h3>
+                                    <p class="dl-text">{{module.text}}</p>
+                                </div>
+                            </div>
+                        {{/each}}
+                        <ya-kit-clickable-area class="hotspots__close" on-press="{{call spot.makeChangeHandler -1}}">
+                            <span class="hotspots__close-icon"></span>
+                        </ya-kit-clickable-area>
+                    </div>
+                </div>
+                <div class="hotspots__mobile">
+                    <div class="hotspots__mobile-card {{if (eql spot.value -1) 'hotspots__mobile-card--active'}}">
+                        <h3 class="dl-banner-title hotspots__card-title">{{settings.introTitle}}</h3>
+                        <p class="dl-text">{{settings.introText}}</p>
+                    </div>
+                    {{#each settings.modules as |module, index|}}
+                        <div class="hotspots__mobile-card {{if (eql spot.value index) 'hotspots__mobile-card--active'}}">
+                            <h3 class="dl-banner-title hotspots__card-title">{{module.title}}</h3>
+                            <p class="dl-text">{{module.text}}</p>
+                        </div>
+                    {{/each}}
+                    <div class="hotspots__arrows">
+                        <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value -1) (subtract (length settings.modules) 1) (subtract spot.value 1))}}">
+                            <span class="dl-arrow">&larr;</span>
+                        </ya-kit-clickable-area>
+                        <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value (subtract (length settings.modules) 1)) -1 (add spot.value 1))}}">
+                            <span class="dl-arrow">&rarr;</span>
+                        </ya-kit-clickable-area>
+                    </div>
+                </div>
+            </div>
+        </ya-kit-value-controller>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

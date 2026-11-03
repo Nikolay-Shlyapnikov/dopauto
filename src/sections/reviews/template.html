@@ -1,0 +1,52 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl dl-grid-bg reviews">
+            <div class="reviews__head">
+                <ya-kit-intersection-controller as="wordSeen" trigger-once="1">
+                    <div class="reviews__word-box" ref={{wordSeen.elementRef}}>
+                        <ya-kit-transition is-visible={{wordSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">
+                            <div class="reviews__word">
+                                <span class="dl-word">@@word:otzyvy@@</span>
+                            </div>
+                        </ya-kit-transition>
+                    </div>
+                </ya-kit-intersection-controller>
+                <h2 class="dl-banner-title reviews__title">{{settings.titleText}}</h2>
+            </div>
+            <div class="dl-container reviews__slider">
+                <ya-kit-video-queue>
+                    <ya-kit-carousel columns="1" columns-touch="1" h-gap="300" controls-alignment="edges" controls-size="md">
+                        {{#each settings.modules as |module|}}
+                            <ya-kit-module module-id={{module.id}} class="reviews__item">
+                                <div class="reviews__card">
+                                    <div class="reviews__media">
+                                        {{#if module.video}}
+                                            <ya-kit-video class="reviews__video" src={{module.video}} fit="cover" is-autoplay="{{true}}" is-muted="{{true}}" is-loop="{{true}}" is-skinless="{{true}}" />
+                                        {{/if}}
+                                    </div>
+                                    <div class="reviews__body">
+                                        <div class="reviews__author">
+                                            <span class="reviews__avatar">
+                                                {{#if module.avatar.filePath}}
+                                                    <ya-kit-image src={{module.avatar}} fit="cover" rounded="999" enable-paranja="{{false}}" />
+                                                {{/if}}
+                                            </span>
+                                            <span class="reviews__who">
+                                                <span class="reviews__name">{{module.name}}</span>
+                                                <span class="reviews__car">{{module.car}}</span>
+                                            </span>
+                                        </div>
+                                        {{#if module.badge}}
+                                            <span class="reviews__badge"><span class="reviews__check"></span>{{module.badge}}</span>
+                                        {{/if}}
+                                        <p class="reviews__text">{{module.text}}</p>
+                                    </div>
+                                </div>
+                            </ya-kit-module>
+                        {{/each}}
+                    </ya-kit-carousel>
+                </ya-kit-video-queue>
+            </div>
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

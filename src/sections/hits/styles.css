@@ -1,0 +1,48 @@
+.hits {
+    --px: calc(100vw / 1440);
+    overflow: hidden;
+    padding: 60px 0 calc(76 * var(--px) + 40px);
+}
+
+.hits__title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.hits__word-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: calc(76 * var(--px));
+    overflow: hidden;
+}
+
+.hits__word {
+    width: calc(1057 * var(--px));
+    margin-left: calc(-22 * var(--px));
+}
+
+.hits__word[data-transition='custom'] {
+    transform: translateY(100%);
+    transition-property: transform;
+}
+
+.hits__word[data-transition='custom'][data-transition-status='entered'] {
+    transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+    .hits {
+        padding: 40px 0 120px;
+    }
+
+    .hits__word-box {
+        height: 92px;
+    }
+
+    .hits__word {
+        width: 340px;
+        margin-left: -6px;
+    }
+}
