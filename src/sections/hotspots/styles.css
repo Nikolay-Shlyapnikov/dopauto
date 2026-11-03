@@ -4,10 +4,30 @@
     color: var(--dl-white);
 }
 
+/* Высота блока — максимум из пропорций макета (spacer) и самой длинной карточки панели.
+   Картинка с точками лежит в слое canvas с теми же пропорциями 1440/695: при росте блока
+   слой растёт целиком (прижат влево, лишнее уходит под панель), и точки остаются на своих местах */
 .hotspots__stage {
     position: relative;
-    aspect-ratio: 1440 / 695;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     overflow: hidden;
+}
+
+/* align-self: start — иначе распорка растягивается по высоте панели и раздувает ширину */
+.hotspots__spacer {
+    grid-area: 1 / 1;
+    align-self: start;
+    aspect-ratio: 1440 / 695;
+}
+
+.hotspots__canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-width: 100%;
+    aspect-ratio: 1440 / 695;
 }
 
 .hotspots__image {
@@ -24,10 +44,9 @@
 }
 
 .hotspots__panel {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    grid-area: 1 / 1;
+    justify-self: end;
     z-index: 2;
     width: var(--panel);
     min-width: 320px;

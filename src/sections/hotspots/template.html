@@ -1,6 +1,8 @@
 <ya-kit-value-controller initial-value="{{0}}" as="spot">
     <div class="dl hotspots {{if (gte spot.value 1) 'hotspots--open'}}">
         <div class="hotspots__stage">
+            <div class="hotspots__spacer"></div>
+            <div class="hotspots__canvas">
             {{#if settings.image.filePath}}
                 <ya-kit-image class="hotspots__image" src={{settings.image}} fit="cover" enable-paranja="{{false}}" />
             {{/if}}
@@ -11,6 +13,7 @@
                 </ya-kit-clickable-area>
             {{/if}}
 @@end@@
+            </div>
             <div class="hotspots__panel">
 @@repeat 4@@
                 {{#if settings.spot@@i@@Title}}
