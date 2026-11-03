@@ -1,7 +1,6 @@
 <ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
     <ya-kit-section-layout-row>
         <ya-kit-value-controller initial-value="{{0}}" as="mat">
-            <ya-kit-value-controller initial-value="{{-1}}" as="spot">
                 <div class="dl materials">
                     <div class="dl-grid-bg materials__tabs">
                         <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 0}}">
@@ -12,7 +11,9 @@
                         </ya-kit-clickable-area>
                     </div>
                     <div class="materials__slides">
-                        <div class="materials__slide {{if (eql mat.value 0) 'materials__slide--active'}}">
+                        {{#if (eql mat.value 0)}}
+                        <ya-kit-value-controller initial-value="{{-1}}" as="spot">
+                        <div class="materials__slide">
                             <div class="materials__stage">
                                 {{#if settings.material1Image.filePath}}
                                     <ya-kit-image class="materials__image" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
@@ -53,7 +54,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="materials__slide {{if (eql mat.value 1) 'materials__slide--active'}}">
+                        </ya-kit-value-controller>
+                        {{/if}}
+                        {{#if (eql mat.value 1)}}
+                        <ya-kit-value-controller initial-value="{{-1}}" as="spot">
+                        <div class="materials__slide">
                             <div class="materials__stage">
                                 {{#if settings.material2Image.filePath}}
                                     <ya-kit-image class="materials__image" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
@@ -94,9 +99,10 @@
                                 </div>
                             </div>
                         </div>
+                        </ya-kit-value-controller>
+                        {{/if}}
                     </div>
                 </div>
-            </ya-kit-value-controller>
         </ya-kit-value-controller>
     </ya-kit-section-layout-row>
 </ya-kit-section-layout>
