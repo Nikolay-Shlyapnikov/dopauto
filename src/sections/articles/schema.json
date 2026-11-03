@@ -1,0 +1,25 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "titleText": {
+      "type": "string",
+      "title": "Заголовок",
+      "default": "Последние статьи"
+    },
+    "blogButtonText": {
+      "type": "string",
+      "title": "Текст кнопки блога",
+      "default": "Блог"
+    },
+    "blogUrl": {
+      "$ref": "#/definitions/LinkSource",
+      "title": "Ссылка кнопки блога (пусто — кнопки нет)"
+    },
+    "count": {
+      "type": "string",
+      "title": "Сколько статей показать (число)",
+      "default": "4"
+    }
+  }
+}

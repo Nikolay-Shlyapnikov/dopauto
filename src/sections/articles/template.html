@@ -1,0 +1,28 @@
+<div class="dl dl-grid-bg articles">
+    <div class="dl-container">
+        <div class="articles__head">
+            <h2 class="dl-h2 articles__title">{{settings.titleText}}</h2>
+            {{#if settings.blogUrl.link}}
+                <ya-kit-link to={{settings.blogUrl.link}} class="articles__blog">{{settings.blogButtonText}}</ya-kit-link>
+            {{/if}}
+        </div>
+        <ya-kit-featured-blog-controller as="blog" count="{{if settings.count settings.count 4}}">
+            <ya-kit-carousel count="{{length blog.model}}" columns="4" columns-touch="2" h-gap="150" controls-alignment="none">
+                {{#each blog.model as |item|}}
+                    <ya-kit-link to={{item.url}} class="articles__card">
+                        <span class="articles__image">
+                            {{#if item.previewMedia.filePath}}
+                                <ya-kit-image class="articles__img" src={{item.previewMedia}} fit="cover" enable-paranja="{{false}}" />
+                            {{/if}}
+                        </span>
+                        <span class="articles__name">{{item.title}}</span>
+                        {{#if item.shortDescription}}
+                            <span class="articles__desc">{{item.shortDescription}}</span>
+                        {{/if}}
+                        <span class="articles__date">{{formatDate item.pubDate 'D'}} {{if (eql (formatDate item.pubDate 'M') '1') 'января' (if (eql (formatDate item.pubDate 'M') '2') 'февраля' (if (eql (formatDate item.pubDate 'M') '3') 'марта' (if (eql (formatDate item.pubDate 'M') '4') 'апреля' (if (eql (formatDate item.pubDate 'M') '5') 'мая' (if (eql (formatDate item.pubDate 'M') '6') 'июня' (if (eql (formatDate item.pubDate 'M') '7') 'июля' (if (eql (formatDate item.pubDate 'M') '8') 'августа' (if (eql (formatDate item.pubDate 'M') '9') 'сентября' (if (eql (formatDate item.pubDate 'M') '10') 'октября' (if (eql (formatDate item.pubDate 'M') '11') 'ноября' (if (eql (formatDate item.pubDate 'M') '12') 'декабря' '')))))))))))}} {{formatDate item.pubDate 'YYYY'}} г.</span>
+                    </ya-kit-link>
+                {{/each}}
+            </ya-kit-carousel>
+        </ya-kit-featured-blog-controller>
+    </div>
+</div>
