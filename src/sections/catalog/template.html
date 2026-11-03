@@ -1,0 +1,32 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl dl-grid-bg catalog">
+            <ya-kit-intersection-controller as="seen" trigger-once="1">
+                <div class="catalog__inner" ref={{seen.elementRef}}>
+                    <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" easing="ease-out">
+                        <h2 class="dl-h1 catalog__title dl-reveal">{{settings.titleText}}</h2>
+                    </ya-kit-transition>
+                    <div class="catalog__stage">
+                        <span class="dl-word catalog__word">@@word:dopavto@@</span>
+                        <div class="dl-container catalog__carousel">
+                            <ya-kit-carousel columns="3" columns-touch="2" h-gap="300" controls-alignment="edges" controls-size="md">
+                                {{#each settings.modules as |module|}}
+                                    <ya-kit-module module-id={{module.id}} class="catalog__item">
+                                        <ya-kit-link to={{module.url.link}} class="catalog__link">
+                                            <span class="catalog__image">
+                                                {{#if module.image.filePath}}
+                                                    <ya-kit-image src={{module.image}} fit="contain" aspect-ratio="1:1" enable-paranja="{{false}}" />
+                                                {{/if}}
+                                            </span>
+                                            <span class="catalog__name">{{module.title}}</span>
+                                        </ya-kit-link>
+                                    </ya-kit-module>
+                                {{/each}}
+                            </ya-kit-carousel>
+                        </div>
+                    </div>
+                </div>
+            </ya-kit-intersection-controller>
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

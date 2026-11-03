@@ -1,0 +1,41 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl dl-grid-bg text text--{{settings.layout}} text--word-{{settings.wordPosition}}" style="--l1: {{settings.line1Indent}}; --l2: {{settings.line2Indent}}; --p: {{settings.paragraphsIndent}}">
+            {{#if (notEql settings.word "none")}}
+                <ya-kit-intersection-controller as="wordSeen" trigger-once="1">
+                    <div class="text__word-box" ref={{wordSeen.elementRef}}>
+                        <ya-kit-transition is-visible={{wordSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">
+                            <div class="text__word">
+                                {{#if (eql settings.word "detali")}}
+                                    <span class="dl-word">@@word:detali@@</span>
+                                {{/if}}
+                                {{#if (eql settings.word "material")}}
+                                    <span class="dl-word dl-word--desktop">@@word:material@@</span>
+                                    <span class="dl-word dl-word--mobile">@@word:material-mobile@@</span>
+                                {{/if}}
+                            </div>
+                        </ya-kit-transition>
+                    </div>
+                </ya-kit-intersection-controller>
+            {{/if}}
+            <ya-kit-intersection-controller as="seen" trigger-once="1">
+                <div class="text__inner" ref={{seen.elementRef}}>
+                    <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
+                        <h2 class="dl-h1 text__heading dl-reveal">
+                            <span class="text__line text__line--1">{{settings.line1}}</span>
+                            <span class="text__line text__line--2">{{settings.line2}}</span>
+                        </h2>
+                        <div class="text__paragraphs dl-reveal">
+                            {{#each settings.modules as |module|}}
+                                <div class="text__paragraph">
+                                    <span class="text__num">{{module.number}}/</span>
+                                    <p class="dl-text">{{module.text}}</p>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </ya-kit-transition>
+                </div>
+            </ya-kit-intersection-controller>
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

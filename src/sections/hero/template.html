@@ -1,0 +1,40 @@
+<ya-kit-section-layout is-fullscreen="enabled" padding-top="none" padding-bottom="none" h-padding-desktop="0" h-padding-mobile="0">
+    <ya-kit-section-layout-row>
+        <div class="dl hero">
+            <div class="hero__media hero__media--desktop">
+                {{#if settings.videoDesktop}}
+                    <ya-kit-video class="hero__video" src={{settings.videoDesktop}} fit="cover" is-autoplay="{{true}}" is-muted="{{true}}" is-loop="{{true}}" is-skinless="{{true}}" />
+                {{/if}}
+            </div>
+            <div class="hero__media hero__media--mobile">
+                {{#if settings.videoMobile}}
+                    <ya-kit-video class="hero__video" src={{settings.videoMobile}} fit="cover" is-autoplay="{{true}}" is-muted="{{true}}" is-loop="{{true}}" is-skinless="{{true}}" />
+                {{/if}}
+            </div>
+            <ya-kit-intersection-controller as="seen" trigger-once="1">
+                <div class="hero__content" ref={{seen.elementRef}}>
+                    <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
+                        <h1 class="dl-h1 hero__title dl-reveal">{{settings.titleText}}</h1>
+                        {{#if settings.buttonUrl.link}}
+                            <div class="hero__cta dl-reveal">
+                                <ya-kit-link to={{settings.buttonUrl.link}}><span class="dl-btn">{{settings.buttonText}}</span></ya-kit-link>
+                            </div>
+                        {{/if}}
+                    </ya-kit-transition>
+                </div>
+            </ya-kit-intersection-controller>
+            {{#if settings.modules}}
+                <ul class="hero__usp">
+                    {{#each settings.modules as |module|}}
+                        <li class="hero__usp-item">
+                            {{#if module.icon.filePath}}
+                                <ya-kit-image class="hero__usp-icon" src={{module.icon}} fit="contain" enable-paranja="{{false}}" />
+                            {{/if}}
+                            <span class="hero__usp-text">{{module.text}}</span>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </ya-kit-section-layout-row>
+</ya-kit-section-layout>

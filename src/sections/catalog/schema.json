@@ -1,0 +1,40 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "titleText": {
+      "type": "string",
+      "title": "Заголовок",
+      "default": "Каталог"
+    },
+    "modules": {
+      "type": "array",
+      "title": "Категории",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Название"
+          },
+          "image": {
+            "$ref": "#/definitions/ImageModel",
+            "title": "Изображение (PNG с прозрачным фоном)"
+          },
+          "url": {
+            "$ref": "#/definitions/LinkSource",
+            "title": "Ссылка"
+          }
+        }
+      },
+      "default": [
+        { "title": "Коврики в салон" },
+        { "title": "Коврики в багажник" },
+        { "title": "Брызговики" },
+        { "title": "Клипсы крепления ковриков" },
+        { "title": "Поддоны АКБ" },
+        { "title": "Поддоны порогов" }
+      ]
+    }
+  }
+}

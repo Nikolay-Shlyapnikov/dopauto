@@ -1,0 +1,49 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "titleText": {
+      "$ref": "#/definitions/TextArea",
+      "title": "Заголовок",
+      "default": "Коврики, созданные\nдля вашего автомобиля"
+    },
+    "buttonText": {
+      "type": "string",
+      "title": "Текст кнопки",
+      "default": "Заказать"
+    },
+    "buttonUrl": {
+      "$ref": "#/definitions/LinkSource",
+      "title": "Ссылка кнопки"
+    },
+    "videoDesktop": {
+      "$ref": "#/definitions/VideoModel",
+      "title": "Фоновое видео для компьютера"
+    },
+    "videoMobile": {
+      "$ref": "#/definitions/VideoModel",
+      "title": "Фоновое видео для телефона"
+    },
+    "modules": {
+      "type": "array",
+      "title": "Преимущества внизу экрана",
+      "items": {
+        "type": "object",
+        "properties": {
+          "icon": {
+            "$ref": "#/definitions/ImageModel",
+            "title": "Иконка"
+          },
+          "text": {
+            "$ref": "#/definitions/TextArea",
+            "title": "Текст"
+          }
+        }
+      },
+      "default": [
+        { "text": "Бесплатная\nдоставка" },
+        { "text": "На 20-25% дешевле,\nчем на маркетплейсах" }
+      ]
+    }
+  }
+}

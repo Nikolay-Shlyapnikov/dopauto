@@ -1,0 +1,75 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "line1": {
+      "type": "string",
+      "title": "Заголовок, строка 1",
+      "default": "У каждого свой автомобиль."
+    },
+    "line2": {
+      "type": "string",
+      "title": "Заголовок, строка 2",
+      "default": "А у нас — внимание к каждому."
+    },
+    "layout": {
+      "type": "string",
+      "title": "Раскладка",
+      "enum": ["split", "stair"],
+      "enumNames": ["Заголовок слева, текст в правой колонке", "Текст под второй строкой заголовка"],
+      "default": "split"
+    },
+    "line1Indent": {
+      "type": "number",
+      "title": "Отступ строки 1, px при ширине 1440",
+      "default": 0
+    },
+    "line2Indent": {
+      "type": "number",
+      "title": "Отступ строки 2, px при ширине 1440",
+      "default": 245
+    },
+    "paragraphsIndent": {
+      "type": "number",
+      "title": "Отступ текста, px при ширине 1440 (для раскладки «под строкой»)",
+      "default": 0
+    },
+    "word": {
+      "type": "string",
+      "title": "Крупное слово на фоне",
+      "enum": ["none", "detali", "material"],
+      "enumNames": ["Нет", "Детали", "Материал"],
+      "default": "none"
+    },
+    "wordPosition": {
+      "type": "string",
+      "title": "Где крупное слово",
+      "enum": ["top", "bottom"],
+      "enumNames": ["Сверху, за заголовком", "Снизу, выходит из-за баннера"],
+      "default": "bottom"
+    },
+    "modules": {
+      "type": "array",
+      "title": "Абзацы",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string",
+            "title": "Номер"
+          },
+          "text": {
+            "$ref": "#/definitions/TextArea",
+            "title": "Текст"
+          }
+        }
+      },
+      "default": [
+        {
+          "number": "01",
+          "text": "Наша история — это 10 лет работы в оптово-розничной торговле. За каждым нашим товаром стоит осознанный выбор: качественные материалы, оригинальная продукция и польза для вашего автомобиля."
+        }
+      ]
+    }
+  }
+}

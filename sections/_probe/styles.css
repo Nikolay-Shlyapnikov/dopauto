@@ -1,0 +1,132 @@
+.probe {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #000000;
+}
+
+.probe__h {
+    margin: 24px 0 0;
+    font-weight: 700;
+}
+
+.tabs,
+.radio,
+.arrows {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.tab {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background: #E2E2E2;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab--active {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.panel,
+.radio__panel {
+    display: none;
+    width: 100%;
+    padding: 24px;
+    background: #111111;
+    color: #FFFFFF;
+}
+
+.panel--visible {
+    display: block;
+}
+
+.radio__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.radio__input:checked + .tab {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+#probe-r1:checked ~ .radio__panel--1,
+#probe-r2:checked ~ .radio__panel--2 {
+    display: block;
+}
+
+.arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid #E2E2E2;
+    cursor: pointer;
+}
+
+.card {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E2E2E2;
+    border-radius: 12px;
+}
+
+.word-wrap {
+    overflow: hidden;
+    height: 110px;
+}
+
+.word {
+    font-size: 95px;
+    line-height: 1;
+    font-weight: 900;
+    color: #E2E2E2;
+}
+
+.word[data-transition='custom'] {
+    transform: translateY(100%);
+    transition-property: transform;
+}
+
+.word[data-transition='custom'][data-transition-status='entered'] {
+    transform: translateY(0);
+}
+
+.banner {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111111;
+    color: #FFFFFF;
+}
+
+.font {
+    margin: 0;
+    font-size: 24px;
+}
+
+.font--manrope {
+    font-family: 'Manrope', monospace;
+}
+
+.font--inter {
+    font-family: 'Inter', monospace;
+}
+
+.font--theme {
+    font-family: var(--ys-font-family);
+}
