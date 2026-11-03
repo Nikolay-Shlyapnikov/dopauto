@@ -46,9 +46,9 @@
                         {{/if}}
 @@end@@
                         <div class="materials__nav">
-                            <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 1}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
-                            <span class="materials__counter">1/2</span>
-                            <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 1}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle prev spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                            {{#if (gte spot.value 1)}}<span class="materials__counter">{{add 0 @@cycle pos spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}/{{add 0 @@cycle count spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}</span>{{/if}}
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle next spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
                         </div>
                     </div>
                 </div>
@@ -91,9 +91,9 @@
                         {{/if}}
 @@end@@
                         <div class="materials__nav">
-                            <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 0}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
-                            <span class="materials__counter">2/2</span>
-                            <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 0}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle prev spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                            {{#if (gte spot.value 1)}}<span class="materials__counter">{{add 0 @@cycle pos spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}/{{add 0 @@cycle count spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}</span>{{/if}}
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle next spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
                         </div>
                     </div>
                 </div>

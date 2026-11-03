@@ -2,6 +2,7 @@
 // template.html:
 //   @@word:<file>@@        -> inline SVG from assets/akony/<file>.svg
 //   @@repeat N@@ … @@end@@ -> N copies, with @@i@@ replaced by 1..N
+//   @@cycle kind value N cond@@ -> if-chains for stepping through active items (see cycle below)
 // schema.json:
 //   "@@repeat": [{ "count": N, "properties": { "item@@i@@Name": {…} }, "defaults": [{ "item@@i@@Name": "…" }, …] }]
 //   -> numbered properties item1Name … itemNName, each with its own default
@@ -23,9 +24,31 @@ const inlineWord = (_, file) => {
         .replace(/fill="(#E2E2E2|black)"/g, 'fill="currentColor"');
 };
 
+// @@cycle <next|prev|pos|count> <value> <N> <condition with # for the index>@@
+// Handlebars has no loops, so moving between the "active" items 1..N (not necessarily
+// consecutive) is unrolled into if-chains. Active item j = condition with # -> j.
+//   next/prev -> the following/previous active index, wrapping around; from 0 -> first/last
+//   pos       -> how many active items are <= value; count -> how many active items
+const cycle = (_, kind, value, n, cond) => {
+    const N = Number(n);
+    const on = (j) => cond.replaceAll("#", String(j));
+    const range = (from, to) => from <= to
+        ? Array.from({ length: to - from + 1 }, (__, k) => from + k)
+        : Array.from({ length: from - to + 1 }, (__, k) => from - k);
+    const firstActive = (order) => order.reduceRight((rest, j) => `(if ${on(j)} ${j} ${rest})`, value);
+    const sum = (terms) => terms.reduce((acc, t) => `(add ${acc} ${t})`);
+    if (kind === "count") return sum(range(1, N).map((j) => `(if ${on(j)} 1 0)`));
+    if (kind === "pos") return sum(range(1, N).map((j) => `(if (and ${on(j)} (gte ${value} ${j})) 1 0)`));
+    const target = (v) => kind === "next"
+        ? firstActive([...(v < N ? range(v + 1, N) : []), ...(v > 0 ? range(1, v) : [])])
+        : firstActive([...(v > 1 ? range(v - 1, 1) : []), ...(v < N ? range(N, v + 1) : [])].filter((j) => j !== v || v === 0));
+    return range(1, N).reduceRight((rest, v) => `(if (eql ${value} ${v}) ${target(v)} ${rest})`, target(0));
+};
+
 const expandTemplate = (html) => html
     .replace(/@@repeat (\d+)@@\n?([\s\S]*?)@@end@@\n?/g, (_, count, body) =>
         Array.from({ length: Number(count) }, (__, i) => body.replaceAll("@@i@@", String(i + 1))).join(""))
+    .replace(/@@cycle (next|prev|pos|count) (\S+) (\d+) (.+?)@@/g, cycle)
     .replace(/@@word:([\w-]+)@@/g, inlineWord);
 
 const expandSchema = (schema) => {
