@@ -7,7 +7,7 @@
             <div class="catalog__stage">
                 <span class="dl-word catalog__word">@@word:dopavto@@</span>
                 <div class="dl-container catalog__carousel">
-                    <ya-kit-carousel columns="3" columns-touch="2" h-gap="300" controls-alignment="edges" controls-size="md">
+                    <ya-kit-carousel count="{{add (add (add (add (add (add (add (if settings.category1Title 1 0) (if settings.category2Title 1 0)) (if settings.category3Title 1 0)) (if settings.category4Title 1 0)) (if settings.category5Title 1 0)) (if settings.category6Title 1 0)) (if settings.category7Title 1 0)) (if settings.category8Title 1 0)}}" columns="3" columns-touch="2" h-gap="300" controls-alignment="edges" controls-size="md">
 @@repeat 8@@
                         {{#if settings.category@@i@@Title}}
                             <ya-kit-link to={{settings.category@@i@@Url.link}} class="catalog__link">

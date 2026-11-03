@@ -8,7 +8,7 @@
     </ya-kit-intersection-controller>
     <div class="dl-container hits__shelf">
         <ya-kit-featured-products-controller data-source={{settings.source}} as="products" count="{{settings.count}}">
-            <ya-kit-carousel columns="4" columns-touch="2" h-gap="200" controls-alignment="edges" controls-size="md">
+            <ya-kit-carousel count="{{length products.model}}" columns="4" columns-touch="2" h-gap="200" controls-alignment="edges" controls-size="md">
                 {{#each products.model as |item|}}
                     <ya-kit-product-snippet product={{item}} enable-button="{{true}}" enable-badges="{{true}}" />
                 {{/each}}
