@@ -1,4 +1,13 @@
-<div class="dl dl-grid-bg text {{if settings.layoutBelow 'text--below'}} {{if settings.showWord 'text--word'}}" style="--indent: {{if settings.line2Indent settings.line2Indent 245}}; --pw: {{if settings.paragraphsWidth settings.paragraphsWidth 312}}">
+<div class="dl dl-grid-bg text {{if settings.layoutBelow 'text--below'}} {{if (eql settings.word 'ДЕТАЛИ') 'text--word'}}" style="--indent: {{if settings.line2Indent settings.line2Indent 245}}; --pw: {{if settings.paragraphsWidth settings.paragraphsWidth 312}}; --left: {{if settings.headingLeft settings.headingLeft 244}}">
+    {{#if (eql settings.word 'МАТЕРИАЛ')}}
+        <ya-kit-intersection-controller as="bgSeen" trigger-once="1">
+            <div class="text__bgword" ref={{bgSeen.elementRef}}>
+                <ya-kit-transition is-visible={{bgSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">
+                    <span class="dl-word text__bgword-inner">@@word:material@@</span>
+                </ya-kit-transition>
+            </div>
+        </ya-kit-intersection-controller>
+    {{/if}}
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="text__inner" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
@@ -23,7 +32,7 @@
             </ya-kit-transition>
         </div>
     </ya-kit-intersection-controller>
-    {{#if settings.showWord}}
+    {{#if (eql settings.word 'ДЕТАЛИ')}}
         <ya-kit-intersection-controller as="wordSeen" trigger-once="1">
             <div class="text__word-box" ref={{wordSeen.elementRef}}>
                 <ya-kit-transition is-visible={{wordSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">

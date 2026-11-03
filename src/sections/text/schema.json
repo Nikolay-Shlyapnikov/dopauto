@@ -14,30 +14,46 @@
     },
     "line2Indent": {
       "type": "string",
-      "title": "Отступ второй строки, px при ширине 1440 (1-й блок — 245, 3-й — 424)",
+      "title": "Отступ второй строки, px при ширине 1440 (1-й блок — 245, 2-й — 561, 3-й — 424, 4-й — 271)",
       "default": "245"
     },
     "paragraphsWidth": {
       "type": "string",
-      "title": "Ширина колонки абзацев, px (1-й блок — 312, 3-й — 340)",
+      "title": "Ширина колонки абзацев, px (1-й блок — 312, 2-й — 257, 3-й — 340, 4-й — 297)",
       "default": "312"
     },
-    "showWord": {
-      "type": "boolean",
-      "title": "Слово «ДЕТАЛИ» (на компьютере внизу, на телефоне вверху)",
-      "default": false
+    "word": {
+      "type": "string",
+      "title": "Слово на фоне: ДЕТАЛИ — внизу справа (3-й блок), МАТЕРИАЛ — за заголовком (4-й блок)",
+      "enum": [
+        "Нет",
+        "ДЕТАЛИ",
+        "МАТЕРИАЛ"
+      ],
+      "default": "Нет"
     },
     "layoutBelow": {
       "type": "boolean",
-      "title": "Абзацы под заголовком справа (второй текстовый блок)",
+      "title": "Абзацы под заголовком справа (2-й и 4-й блоки)",
       "default": false
+    },
+    "headingLeft": {
+      "type": "string",
+      "title": "Только для «абзацы под заголовком»: сдвиг блока слева, px при ширине 1440 (2-й — 244, 4-й — 370)",
+      "default": "244"
     },
     "@@repeat": [
       {
         "count": 2,
         "properties": {
-          "paragraph@@i@@Number": { "type": "string", "title": "Абзац @@i@@: номер" },
-          "paragraph@@i@@Text": { "$ref": "#/definitions/TextArea", "title": "Абзац @@i@@: текст" }
+          "paragraph@@i@@Number": {
+            "type": "string",
+            "title": "Абзац @@i@@: номер"
+          },
+          "paragraph@@i@@Text": {
+            "$ref": "#/definitions/TextArea",
+            "title": "Абзац @@i@@: текст"
+          }
         },
         "defaults": [
           {

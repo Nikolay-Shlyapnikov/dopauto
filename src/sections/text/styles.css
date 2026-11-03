@@ -6,6 +6,8 @@
 /* Абзацы плавают справа, заголовок занимает остальное место. Флекс тут не годится:
    ya-kit-transition добавляет свои обёртки между .text__inner и элементами */
 .text__inner {
+    position: relative;
+    z-index: 1;
     display: flow-root;
     max-width: 1440px;
     margin: 0 auto;
@@ -37,19 +39,17 @@
     margin-left: 40px;
 }
 
-/* Второй вариант (макет 1440): блок от 244 до 1195px, вторая строка с 805px,
-   абзацы под заголовком, правый край вровень со второй строкой */
+/* «Абзацы под заголовком» (2-й и 4-й блоки): блок шириной по заголовку сдвинут слева на --left,
+   абзацы под ним прижаты к правому краю второй строки */
 .text--below .text__inner {
-    padding: 0 calc(245 * var(--px)) 0 calc(244 * var(--px));
-}
-
-.text--below .text__line--2 {
-    margin-left: calc(561 * var(--px));
+    width: max-content;
+    max-width: 100%;
+    margin: 0 0 0 calc(var(--left, 244) * var(--px));
+    padding: 0;
 }
 
 .text--below .text__paragraphs {
     float: none;
-    width: 257px;
     margin: 20px 0 0 auto;
 }
 
@@ -86,6 +86,25 @@
 
 .text__word[data-transition='custom'][data-transition-status='entered'] {
     transform: translateY(0);
+}
+
+/* Слово «МАТЕРИАЛ» (1092×67) фоном за заголовком: верх на 12px выше заголовка, целиком в отступах */
+.text__bgword {
+    position: absolute;
+    top: 88px;
+    left: var(--dl-gutter);
+    width: min(calc(1092 * var(--px)), calc(100% - 2 * var(--dl-gutter)));
+}
+
+.text__bgword-inner[data-transition='custom'] {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition-property: opacity, transform;
+}
+
+.text__bgword-inner[data-transition='custom'][data-transition-status='entered'] {
+    opacity: 1;
+    transform: none;
 }
 
 .text__paragraph {
@@ -125,7 +144,13 @@
     }
 
     .text--below .text__inner {
+        width: auto;
+        margin: 0 auto;
         padding: 0 var(--dl-gutter);
+    }
+
+    .text__bgword {
+        display: none;
     }
 
     .text--below .text__paragraphs {
