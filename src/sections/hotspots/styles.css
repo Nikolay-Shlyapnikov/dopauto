@@ -72,6 +72,14 @@
     position: absolute;
     bottom: 24px;
     left: -60px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.hotspots--open .hotspots__close {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .hotspots__close-icon {

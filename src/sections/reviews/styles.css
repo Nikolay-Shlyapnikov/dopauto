@@ -43,6 +43,12 @@
 .reviews__slider {
     position: relative;
     z-index: 1;
+    max-width: calc(var(--dl-content) + 2 * 64px + 2 * var(--dl-gutter));
+}
+
+.reviews__item {
+    display: block;
+    padding: 0 64px;
 }
 
 .reviews__card {
@@ -166,6 +172,14 @@
     .reviews__word {
         width: 420px;
         margin-left: -6px;
+    }
+
+    .reviews__slider {
+        max-width: none;
+    }
+
+    .reviews__item {
+        padding: 0;
     }
 
     .reviews__card {
