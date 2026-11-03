@@ -1,6 +1,6 @@
 <div class="dl banner">
     {{#if settings.imageDesktop.filePath}}
-        <ya-kit-image class="banner__bg {{if settings.imageMobile.filePath 'banner__bg--desktop'}}" src={{settings.imageDesktop}} fit="auto" enable-paranja="{{false}}" />
+        <ya-kit-image class="banner__bg {{if settings.imageMobile.filePath 'banner__bg--desktop'}}" src={{settings.imageDesktop}} fit="cover" enable-paranja="{{false}}" />
     {{/if}}
     {{#if settings.imageMobile.filePath}}
         <ya-kit-image class="banner__bg banner__bg--mobile" src={{settings.imageMobile}} fit="cover" enable-paranja="{{false}}" />

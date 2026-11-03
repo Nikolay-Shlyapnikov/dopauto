@@ -1,31 +1,20 @@
+/* Картинка — фон на весь блок (cover), высоту задаёт текст, но не меньше min-height */
 .banner {
-    display: grid;
-    place-items: center;
-    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
     overflow: hidden;
     background: var(--dl-black);
     color: var(--dl-white);
     text-align: center;
 }
 
-/* Картинка и текст лежат в одной ячейке: высоту блока задаёт сама картинка */
-.banner > * {
-    grid-area: 1 / 1;
-}
-
 .banner__bg {
-    display: block;
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    align-self: stretch;
-}
-
-/* Внутри ya-kit-image заглушка лежит absolute, картинка — в потоке; позиционирование не трогаем */
-.banner__bg img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .banner__bg--mobile {
@@ -91,10 +80,8 @@
         display: none;
     }
 
-    /* На телефоне высоту задаёт текст, а картинка закрывает весь блок */
-    .banner__bg {
-        position: absolute;
-        inset: 0;
+    .banner {
+        min-height: 200px;
     }
 
     .banner__bg--mobile {
