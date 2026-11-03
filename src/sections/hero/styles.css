@@ -83,20 +83,15 @@
     text-align: left;
 }
 
-/* Рамка иконки высотой в две строки текста, картинка вписывается и прижимается влево */
+/* Ширина картинки = ширине рамки, поэтому ширину подбираем под высоту в две строки текста (~38px):
+   доставка 174×114 → 58px, цена 114×114 → 38px */
 .hero__usp-icon {
-    position: relative;
     width: 58px;
-    height: 38px;
     flex-shrink: 0;
-    overflow: hidden;
 }
 
-.hero__usp-icon img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    object-position: left center !important;
+.hero__usp-item:nth-child(2) .hero__usp-icon {
+    width: 38px;
 }
 
 .hero__usp-text {

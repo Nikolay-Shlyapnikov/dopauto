@@ -30,12 +30,6 @@
     background-position: 3px 0;
 }
 
-/* ya-kit-image = div с двумя img: размытая заглушка (aria-hidden) и сама картинка.
-   В превью конструктора заглушка стоит в потоке и сдвигает картинку на свою высоту — убираем её */
-.dl img[aria-hidden='true'] {
-    display: none !important;
-}
-
 .dl-container {
     width: 100%;
     max-width: calc(var(--dl-content) + 2 * var(--dl-gutter));
