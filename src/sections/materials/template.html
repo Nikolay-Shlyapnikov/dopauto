@@ -16,8 +16,8 @@
                         {{#if settings.material1Image.filePath}}
                             <ya-kit-image class="materials__image" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
                         {{/if}}
-                        @@repeat 8@@
-                        {{#if (and (eql settings.spot@@i@@Material "1") settings.spot@@i@@Title)}}
+                        @@repeat 1..5@@
+                        {{#if settings.spot@@i@@Title}}
                                 <ya-kit-clickable-area class="materials__point" style="left: {{settings.spot@@i@@X}}%; top: {{settings.spot@@i@@Y}}%" on-press="{{call spot.makeChangeHandler (if (eql spot.value @@i@@) 0 @@i@@)}}">
                                     <span class="dl-plus {{if (eql spot.value @@i@@) 'dl-plus--active'}}"></span>
                                 </ya-kit-clickable-area>
@@ -29,8 +29,8 @@
                             <h3 class="dl-banner-title materials__title">{{settings.material1Name}}</h3>
                             <p class="dl-text">{{settings.material1Text}}</p>
                         </div>
-                        @@repeat 8@@
-                        {{#if (and (eql settings.spot@@i@@Material "1") settings.spot@@i@@Title)}}
+                        @@repeat 1..5@@
+                        {{#if settings.spot@@i@@Title}}
                                 <div class="materials__card {{if (eql spot.value @@i@@) 'materials__card--active'}}">
                                     {{#if settings.spot@@i@@Photo.filePath}}
                                         <ya-kit-image class="materials__photo" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
@@ -46,9 +46,9 @@
                         {{/if}}
 @@end@@
                         <div class="materials__nav">
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle prev spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
-                            {{#if (gte spot.value 1)}}<span class="materials__counter">{{add 0 @@cycle pos spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}/{{add 0 @@cycle count spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}</span>{{/if}}
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle next spot.value 8 (and (eql settings.spot#Material '1') settings.spot#Title)@@}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte 1 spot.value) (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0)) (subtract spot.value 1))}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                            {{#if (gte spot.value 1)}}<span class="materials__counter">{{spot.value}}/{{add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0)}}</span>{{/if}}
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte spot.value (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0))) 1 (add spot.value 1))}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
                         </div>
                     </div>
                 </div>
@@ -61,8 +61,8 @@
                         {{#if settings.material2Image.filePath}}
                             <ya-kit-image class="materials__image" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
                         {{/if}}
-                        @@repeat 8@@
-                        {{#if (and (eql settings.spot@@i@@Material "2") settings.spot@@i@@Title)}}
+                        @@repeat 6..8@@
+                        {{#if settings.spot@@i@@Title}}
                                 <ya-kit-clickable-area class="materials__point" style="left: {{settings.spot@@i@@X}}%; top: {{settings.spot@@i@@Y}}%" on-press="{{call spot.makeChangeHandler (if (eql spot.value @@i@@) 0 @@i@@)}}">
                                     <span class="dl-plus {{if (eql spot.value @@i@@) 'dl-plus--active'}}"></span>
                                 </ya-kit-clickable-area>
@@ -74,8 +74,8 @@
                             <h3 class="dl-banner-title materials__title">{{settings.material2Name}}</h3>
                             <p class="dl-text">{{settings.material2Text}}</p>
                         </div>
-                        @@repeat 8@@
-                        {{#if (and (eql settings.spot@@i@@Material "2") settings.spot@@i@@Title)}}
+                        @@repeat 6..8@@
+                        {{#if settings.spot@@i@@Title}}
                                 <div class="materials__card {{if (eql spot.value @@i@@) 'materials__card--active'}}">
                                     {{#if settings.spot@@i@@Photo.filePath}}
                                         <ya-kit-image class="materials__photo" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
@@ -91,9 +91,9 @@
                         {{/if}}
 @@end@@
                         <div class="materials__nav">
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle prev spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
-                            {{#if (gte spot.value 1)}}<span class="materials__counter">{{add 0 @@cycle pos spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}/{{add 0 @@cycle count spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}</span>{{/if}}
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler @@cycle next spot.value 8 (and (eql settings.spot#Material '2') settings.spot#Title)@@}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte 6 spot.value) (add 5 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0))) (subtract spot.value 1))}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                            {{#if (gte spot.value 1)}}<span class="materials__counter">{{subtract spot.value 5}}/{{add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0)}}</span>{{/if}}
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte spot.value 6) (if (gte spot.value (add 5 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0)))) 6 (add spot.value 1)) 6)}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
                         </div>
                     </div>
                 </div>

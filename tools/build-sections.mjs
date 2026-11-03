@@ -2,10 +2,11 @@
 // template.html:
 //   @@word:<file>@@        -> inline SVG from assets/akony/<file>.svg
 //   @@repeat N@@ … @@end@@ -> N copies, with @@i@@ replaced by 1..N
-//   @@cycle kind value N cond@@ -> if-chains for stepping through active items (see cycle below)
+//   @@repeat A..B@@ … @@end@@ -> copies for A..B
 // schema.json:
-//   "@@repeat": [{ "count": N, "properties": { "item@@i@@Name": {…} }, "defaults": [{ "item@@i@@Name": "…" }, …] }]
-//   -> numbered properties item1Name … itemNName, each with its own default
+//   "@@repeat": [{ "count": N, "from": 1, "properties": { "item@@i@@Name": {…} }, "defaults": [{ "item@@i@@Name": "…" }, …] }]
+//   -> numbered properties item1Name … itemNName, each with its own default;
+//   "from" shifts the numbering, @@n@@ is the 1-based position inside the group (for titles)
 // Numbered fields replace a `modules` array because the KIT settings form does not edit arrays.
 // Usage: node tools/build-sections.mjs [name...]
 import fs from "node:fs";
@@ -24,31 +25,11 @@ const inlineWord = (_, file) => {
         .replace(/fill="(#E2E2E2|black)"/g, 'fill="currentColor"');
 };
 
-// @@cycle <next|prev|pos|count> <value> <N> <condition with # for the index>@@
-// Handlebars has no loops, so moving between the "active" items 1..N (not necessarily
-// consecutive) is unrolled into if-chains. Active item j = condition with # -> j.
-//   next/prev -> the following/previous active index, wrapping around; from 0 -> first/last
-//   pos       -> how many active items are <= value; count -> how many active items
-const cycle = (_, kind, value, n, cond) => {
-    const N = Number(n);
-    const on = (j) => cond.replaceAll("#", String(j));
-    const range = (from, to) => from <= to
-        ? Array.from({ length: to - from + 1 }, (__, k) => from + k)
-        : Array.from({ length: from - to + 1 }, (__, k) => from - k);
-    const firstActive = (order) => order.reduceRight((rest, j) => `(if ${on(j)} ${j} ${rest})`, value);
-    const sum = (terms) => terms.reduce((acc, t) => `(add ${acc} ${t})`);
-    if (kind === "count") return sum(range(1, N).map((j) => `(if ${on(j)} 1 0)`));
-    if (kind === "pos") return sum(range(1, N).map((j) => `(if (and ${on(j)} (gte ${value} ${j})) 1 0)`));
-    const target = (v) => kind === "next"
-        ? firstActive([...(v < N ? range(v + 1, N) : []), ...(v > 0 ? range(1, v) : [])])
-        : firstActive([...(v > 1 ? range(v - 1, 1) : []), ...(v < N ? range(N, v + 1) : [])].filter((j) => j !== v || v === 0));
-    return range(1, N).reduceRight((rest, v) => `(if (eql ${value} ${v}) ${target(v)} ${rest})`, target(0));
-};
-
 const expandTemplate = (html) => html
-    .replace(/@@repeat (\d+)@@\n?([\s\S]*?)@@end@@\n?/g, (_, count, body) =>
-        Array.from({ length: Number(count) }, (__, i) => body.replaceAll("@@i@@", String(i + 1))).join(""))
-    .replace(/@@cycle (next|prev|pos|count) (\S+) (\d+) (.+?)@@/g, cycle)
+    .replace(/@@repeat (\d+)(?:\.\.(\d+))?@@\n?([\s\S]*?)@@end@@\n?/g, (_, a, b, body) => {
+        const [from, to] = b ? [Number(a), Number(b)] : [1, Number(a)];
+        return Array.from({ length: to - from + 1 }, (__, k) => body.replaceAll("@@i@@", String(from + k))).join("");
+    })
     .replace(/@@word:([\w-]+)@@/g, inlineWord);
 
 const expandSchema = (schema) => {
@@ -59,10 +40,12 @@ const expandSchema = (schema) => {
         if (key !== "@@repeat") properties[key] = value;
     }
     for (const group of groups) {
-        for (let i = 1; i <= group.count; i++) {
-            const defaults = (group.defaults || [])[i - 1] || {};
+        const from = group.from || 1;
+        for (let n = 1; n <= group.count; n++) {
+            const i = from + n - 1;
+            const defaults = (group.defaults || [])[n - 1] || {};
             for (const [key, prop] of Object.entries(group.properties)) {
-                const copy = JSON.parse(JSON.stringify(prop).replaceAll("@@i@@", String(i)));
+                const copy = JSON.parse(JSON.stringify(prop).replaceAll("@@i@@", String(i)).replaceAll("@@n@@", String(n)));
                 if (key in defaults) copy.default = defaults[key];
                 properties[key.replaceAll("@@i@@", String(i))] = copy;
             }
