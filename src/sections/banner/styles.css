@@ -91,6 +91,12 @@
         display: none;
     }
 
+    /* На телефоне высоту задаёт текст, а картинка закрывает весь блок */
+    .banner__bg {
+        position: absolute;
+        inset: 0;
+    }
+
     .banner__bg--mobile {
         display: block;
     }

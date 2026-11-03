@@ -3,7 +3,7 @@
         <ya-kit-image class="banner__bg {{if settings.imageMobile.filePath 'banner__bg--desktop'}}" src={{settings.imageDesktop}} fit="auto" enable-paranja="{{false}}" />
     {{/if}}
     {{#if settings.imageMobile.filePath}}
-        <ya-kit-image class="banner__bg banner__bg--mobile" src={{settings.imageMobile}} fit="auto" enable-paranja="{{false}}" />
+        <ya-kit-image class="banner__bg banner__bg--mobile" src={{settings.imageMobile}} fit="cover" enable-paranja="{{false}}" />
     {{/if}}
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="banner__content" ref={{seen.elementRef}}>
