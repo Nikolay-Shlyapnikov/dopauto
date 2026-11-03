@@ -12,7 +12,6 @@
         <h2 class="dl-banner-title reviews__title">{{settings.titleText}}</h2>
     </div>
     <div class="dl-container reviews__slider">
-        <ya-kit-video-queue>
             <ya-kit-carousel columns="1" columns-touch="1" h-gap="300" controls-alignment="edges" controls-size="md">
                 @@repeat 10@@
                 {{#if settings.review@@i@@Name}}
@@ -20,7 +19,7 @@
                             <div class="reviews__card">
                                 <div class="reviews__media">
                                     {{#if settings.review@@i@@Video}}
-                                        <ya-kit-video class="reviews__video" src={{settings.review@@i@@Video}} fit="cover" is-autoplay="{{true}}" is-muted="{{true}}" is-loop="{{true}}" is-skinless="{{true}}" />
+                                        <ya-kit-video class="reviews__video" src={{settings.review@@i@@Video}} fit="cover" is-autoplay={{true}} is-muted={{true}} is-loop={{true}} is-skinless={{true}} />
                                     {{else}}
                                         {{#if settings.review@@i@@Photo.filePath}}
                                             <ya-kit-image class="reviews__video" src={{settings.review@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
@@ -49,6 +48,5 @@
                 {{/if}}
 @@end@@
             </ya-kit-carousel>
-        </ya-kit-video-queue>
     </div>
 </div>

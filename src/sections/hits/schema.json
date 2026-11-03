@@ -12,9 +12,9 @@
       "title": "Подборка товаров"
     },
     "count": {
-      "type": "number",
+      "type": "string",
       "title": "Сколько товаров показать",
-      "default": 8
+      "default": "8"
     }
   }
 }

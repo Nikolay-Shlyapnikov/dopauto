@@ -30,11 +30,6 @@
       "$ref": "#/definitions/ImageModel",
       "title": "Фон для телефона"
     },
-    "imageHeight": {
-      "type": "number",
-      "title": "Высота картинки для компьютера, px (при ширине 1440)",
-      "default": 181
-    },
     "@@repeat": [
       {
         "count": 3,

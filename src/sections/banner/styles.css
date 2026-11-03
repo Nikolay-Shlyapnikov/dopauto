@@ -1,21 +1,31 @@
 .banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    aspect-ratio: 1440 / var(--ratio, 181);
+    display: grid;
+    place-items: center;
     min-height: 160px;
-    padding: 36px var(--dl-gutter);
     overflow: hidden;
     background: var(--dl-black);
     color: var(--dl-white);
     text-align: center;
 }
 
+/* Картинка и текст лежат в одной ячейке: высоту блока задаёт сама картинка */
+.banner > * {
+    grid-area: 1 / 1;
+}
+
 .banner__bg {
-    position: absolute;
-    inset: 0;
+    display: block;
     width: 100%;
     height: 100%;
+    align-self: stretch;
+}
+
+.banner__bg img {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .banner__bg--mobile {
@@ -27,7 +37,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 420px;
+    max-width: calc(420px + 2 * var(--dl-gutter));
+    padding: 36px var(--dl-gutter);
 }
 
 .banner__subtitle {
@@ -72,9 +83,7 @@
         text-transform: uppercase;
     }
 
-    .banner {
-        aspect-ratio: auto;
-        min-height: 160px;
+    .banner__content {
         padding: 28px var(--dl-gutter);
     }
 

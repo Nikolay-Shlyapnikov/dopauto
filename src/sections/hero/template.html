@@ -1,12 +1,12 @@
 <div class="dl hero">
     <div class="hero__media hero__media--desktop">
         {{#if settings.videoDesktop}}
-            <ya-kit-video class="hero__video" src={{settings.videoDesktop}} fit="cover" is-autoplay="{{true}}" is-muted="{{true}}" is-loop="{{true}}" is-skinless="{{true}}" />
+            <ya-kit-video class="hero__video" src={{settings.videoDesktop}} fit="cover" is-autoplay={{true}} is-muted={{true}} is-loop={{true}} is-skinless={{true}} />
         {{/if}}
     </div>
     <div class="hero__media hero__media--mobile">
         {{#if settings.videoMobile}}
-            <ya-kit-video class="hero__video" src={{settings.videoMobile}} fit="cover" is-autoplay="{{true}}" is-muted="{{true}}" is-loop="{{true}}" is-skinless="{{true}}" />
+            <ya-kit-video class="hero__video" src={{settings.videoMobile}} fit="cover" is-autoplay={{true}} is-muted={{true}} is-loop={{true}} is-skinless={{true}} />
         {{/if}}
     </div>
     <ya-kit-intersection-controller as="seen" trigger-once="1">
