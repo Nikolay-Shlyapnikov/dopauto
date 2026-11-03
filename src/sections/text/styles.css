@@ -25,7 +25,7 @@
 
 /* В макете вторая строка начинается с 275px из 1440 (отступ 30 + 245) */
 .text__line--2 {
-    margin-left: calc(245 * var(--px));
+    margin-left: calc(var(--indent, 245) * var(--px));
 }
 
 .text__paragraphs {
@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    width: 312px;
+    width: calc(var(--pw, 312) * 1px);
     margin-left: 40px;
 }
 
@@ -61,6 +61,33 @@
     display: none;
 }
 
+/* Слово «ДЕТАЛИ» (804×75): на компьютере у нижнего края справа, целиком в пределах отступов */
+.text--word {
+    padding-bottom: calc(75 * var(--px) + 24px);
+}
+
+.text__word-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.text__word {
+    width: calc(804 * var(--px));
+    margin-left: calc(100% - 804 * var(--px) - var(--dl-gutter));
+}
+
+.text__word[data-transition='custom'] {
+    transform: translateY(100%);
+    transition-property: transform;
+}
+
+.text__word[data-transition='custom'][data-transition-status='entered'] {
+    transform: translateY(0);
+}
+
 .text__paragraph {
     display: flex;
     gap: 8px;
@@ -75,6 +102,21 @@
 @media (max-width: 767px) {
     .text {
         padding: 60px 0;
+    }
+
+    /* На телефоне слово над заголовком, на всю ширину между отступами */
+    .text--word {
+        padding: calc((100vw - 2 * var(--dl-gutter)) * 75 / 804 + 84px) 0 60px;
+    }
+
+    .text__word-box {
+        top: 60px;
+        bottom: auto;
+    }
+
+    .text__word {
+        width: calc(100% - 2 * var(--dl-gutter));
+        margin-left: var(--dl-gutter);
     }
 
     .text__paragraphs {
