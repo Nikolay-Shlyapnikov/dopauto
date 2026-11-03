@@ -7,19 +7,20 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
+/* Кнопка по Figma: 64×31, скругление 7, рамка #B1B1B1, текст 12px Medium */
 .articles__blog {
     display: inline-flex;
     align-items: center;
-    height: 36px;
-    padding: 0 20px;
-    border: 1px solid var(--dl-word);
-    border-radius: 8px;
+    height: 31px;
+    padding: 0 18px;
+    border: 1px solid #B1B1B1;
+    border-radius: 7px;
     background: var(--dl-white);
     color: var(--dl-black);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     text-decoration: none;
     transition: border-color 0.2s;
