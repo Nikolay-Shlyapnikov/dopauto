@@ -1,4 +1,5 @@
 .text {
+    --px: calc(min(100vw, 1440px) / 1440);
     padding: 100px 0;
 }
 
@@ -22,9 +23,9 @@
     display: none;
 }
 
-/* В макете вторая строка начинается с 246px из 1440 (отступ 30 + 216) */
+/* В макете вторая строка начинается с 275px из 1440 (отступ 30 + 245) */
 .text__line--2 {
-    margin-left: min(calc(216 * 100vw / 1440), 216px);
+    margin-left: calc(245 * var(--px));
 }
 
 .text__paragraphs {
@@ -34,6 +35,30 @@
     gap: 32px;
     width: 312px;
     margin-left: 40px;
+}
+
+/* Второй вариант (макет 1440): блок от 244 до 1195px, вторая строка с 805px,
+   абзацы под заголовком, правый край вровень со второй строкой */
+.text--below .text__inner {
+    padding: 0 calc(245 * var(--px)) 0 calc(244 * var(--px));
+}
+
+.text--below .text__line--2 {
+    margin-left: calc(561 * var(--px));
+}
+
+.text--below .text__paragraphs {
+    float: none;
+    width: 257px;
+    margin: 20px 0 0 auto;
+}
+
+.text--below .text__heading--mobile {
+    display: flex;
+}
+
+.text--below .text__heading--desktop {
+    display: none;
 }
 
 .text__paragraph {
@@ -57,7 +82,17 @@
         margin: 24px 0 0;
     }
 
-    .text__line--2 {
+    .text--below .text__inner {
+        padding: 0 var(--dl-gutter);
+    }
+
+    .text--below .text__paragraphs {
+        width: auto;
+        margin: 24px 0 0;
+    }
+
+    .text__line--2,
+    .text--below .text__line--2 {
         margin-left: 0;
         text-align: right;
     }

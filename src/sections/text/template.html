@@ -1,4 +1,4 @@
-<div class="dl dl-grid-bg text">
+<div class="dl dl-grid-bg text {{if settings.layoutBelow 'text--below'}}">
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="text__inner" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
