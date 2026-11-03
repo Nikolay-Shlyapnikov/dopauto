@@ -14,11 +14,14 @@
 
 .text__heading {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
+    min-width: 0;
 }
 
+/* В макете вторая строка начинается с 246px из 1440 (отступ 30 + 216) */
 .text__line--2 {
-    margin-left: 17%;
+    margin-left: min(calc(216 * 100vw / 1440), 216px);
 }
 
 .text__paragraphs {
