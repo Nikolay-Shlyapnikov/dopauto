@@ -12,6 +12,11 @@
     padding: 0 var(--dl-gutter);
 }
 
+/* Обёртка ya-kit-transition не должна ломать флекс: заголовок и абзацы — прямые элементы ряда */
+.text__inner > :not(.text__heading):not(.text__paragraphs) {
+    display: contents;
+}
+
 .text__heading {
     display: flex;
     flex: 1 1 auto;

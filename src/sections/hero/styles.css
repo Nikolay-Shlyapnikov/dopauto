@@ -83,10 +83,19 @@
     text-align: left;
 }
 
+/* Высота иконки — две строки текста, ширина по пропорциям картинки */
 .hero__usp-icon {
-    width: 56px;
-    height: 40px;
+    display: block;
+    width: auto;
+    height: 38px;
     flex-shrink: 0;
+}
+
+.hero__usp-icon img {
+    position: static;
+    display: block;
+    width: auto;
+    height: 100%;
 }
 
 .hero__usp-text {
