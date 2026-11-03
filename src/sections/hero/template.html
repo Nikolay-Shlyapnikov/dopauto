@@ -24,7 +24,7 @@
     <ul class="hero__usp">
 @@repeat 2@@
         {{#if settings.usp@@i@@Text}}
-            <li class="hero__usp-item">
+            <li class="hero__usp-item {{if settings.usp@@i@@Icon.filePath 'hero__usp-item--icon'}}">
                 {{#if settings.usp@@i@@Icon.filePath}}
                     <ya-kit-image class="hero__usp-icon" src={{settings.usp@@i@@Icon}} fit="contain" enable-paranja="{{false}}" />
                 {{/if}}

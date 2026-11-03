@@ -76,17 +76,27 @@
     list-style: none;
 }
 
+/* Иконка позиционируется от пункта абсолютно: {{#if}} вокруг неё KIT рендерит отдельной обёрткой,
+   и флекс-выравнивание до неё не доходит */
 .hero__usp-item {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 16px;
+    min-height: 38px;
     text-align: left;
+}
+
+.hero__usp-item--icon {
+    padding-left: 74px;
 }
 
 /* ya-kit-image — div с двумя img: размытая заглушка (absolute) и сама картинка (в потоке).
    Рамка высотой в две строки текста, картинка вписывается и прижимается влево */
 .hero__usp-icon {
-    position: relative;
+    position: absolute !important;
+    top: 50%;
+    left: 0;
+    margin: -19px 0 0 !important;
     width: 58px;
     height: 38px;
     flex-shrink: 0;
