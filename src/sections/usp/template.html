@@ -3,7 +3,7 @@
         <div class="dl-container" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
 @@repeat 3@@
-                <div class="usp__card dl-reveal">
+                <div class="usp__card">
                     {{#if settings.card@@i@@Image.filePath}}
                         <ya-kit-image class="usp__image {{if settings.card@@i@@ImageMobile.filePath 'usp__image--desktop'}}" src={{settings.card@@i@@Image}} fit="cover" enable-paranja="{{false}}" />
                     {{/if}}

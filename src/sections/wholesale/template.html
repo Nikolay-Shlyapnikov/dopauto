@@ -11,7 +11,7 @@
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="dl-container wholesale__inner" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
-                <div class="wholesale__media dl-reveal">
+                <div class="wholesale__media">
                     {{#if settings.imageDesktop.filePath}}
                         <ya-kit-image class="wholesale__image {{if settings.imageMobile.filePath 'wholesale__image--desktop'}}" src={{settings.imageDesktop}} fit="cover" enable-paranja="{{false}}" />
                     {{/if}}
@@ -20,7 +20,7 @@
                     {{/if}}
                     <h2 class="dl-banner-title wholesale__title wholesale__title--overlay">{{settings.titleText}}</h2>
                 </div>
-                <div class="wholesale__text dl-reveal">
+                <div class="wholesale__text">
                     <h2 class="dl-banner-title wholesale__title">{{settings.titleText}}</h2>
                     <p class="dl-text">{{settings.text}}</p>
                     {{#if settings.buttonUrl.link}}

@@ -30,6 +30,16 @@
       "$ref": "#/definitions/ImageModel",
       "title": "Фон для телефона"
     },
+    "callPhone": {
+      "type": "string",
+      "title": "Кнопка «Позвонить» (только на телефоне): номер, например +79003003323 (пусто — кнопки нет)",
+      "default": ""
+    },
+    "callText": {
+      "type": "string",
+      "title": "Кнопка «Позвонить»: текст",
+      "default": "Позвонить"
+    },
     "@@repeat": [
       {
         "count": 3,

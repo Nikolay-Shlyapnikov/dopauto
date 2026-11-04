@@ -60,11 +60,11 @@
     transform: none;
 }
 
+/* Карточки сменяются резко, без плавного перехода (правка дизайнера) */
 .hotspots__card {
     grid-area: 1 / 1;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s, visibility 0.4s;
 }
 
 .hotspots__card--active {

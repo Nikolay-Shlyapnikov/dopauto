@@ -82,21 +82,18 @@
     background: #111111;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(24px);
-    transition: opacity 0.45s ease, transform 0.45s ease, visibility 0.45s;
 }
 
+/* Карточки сменяются резко, без сдвига и плавного перехода — как на баннере с машиной */
 .materials__card--default {
     padding: 50px 38px 0;
     opacity: 1;
     visibility: visible;
-    transform: none;
 }
 
 .materials__card--active {
     opacity: 1;
     visibility: visible;
-    transform: none;
 }
 
 .materials__photo {

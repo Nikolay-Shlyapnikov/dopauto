@@ -15,7 +15,7 @@
             <ya-kit-carousel count="{{add (add (add (add (add (add (add (add (add (if settings.review1Name 1 0) (if settings.review2Name 1 0)) (if settings.review3Name 1 0)) (if settings.review4Name 1 0)) (if settings.review5Name 1 0)) (if settings.review6Name 1 0)) (if settings.review7Name 1 0)) (if settings.review8Name 1 0)) (if settings.review9Name 1 0)) (if settings.review10Name 1 0)}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="edges" controls-size="md">
                 @@repeat 10@@
                 {{#if settings.review@@i@@Name}}
-                        <div class="reviews__item">
+                        <div class="reviews__item dl-slide">
                             <div class="reviews__card">
                                 <div class="reviews__media">
                                     {{#if settings.review@@i@@Video}}

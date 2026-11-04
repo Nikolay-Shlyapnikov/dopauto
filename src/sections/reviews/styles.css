@@ -45,12 +45,19 @@
     max-width: calc(var(--dl-content) + 2 * 64px + 2 * var(--dl-gutter));
 }
 
+/* Все отзывы одной высоты — по самому длинному: слайды тянутся по высоте дорожки, карточка — на весь слайд */
 .reviews__item {
-    display: block;
+    display: flex;
     padding: 0 64px;
 }
 
+/* Дорожка карусели KIT помечена data-carousel-track — тянем слайды по её высоте */
+.reviews [data-carousel-track] {
+    align-items: stretch;
+}
+
 .reviews__card {
+    flex: 1 1 auto;
     display: grid;
     grid-template-columns: 454fr 306fr;
     min-height: 295px;

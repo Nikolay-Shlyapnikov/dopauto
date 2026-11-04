@@ -12,9 +12,9 @@
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="hero__content" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
-                <h1 class="dl-h1 hero__title dl-reveal">{{settings.titleText}}</h1>
+                <h1 class="dl-h1 hero__title">{{settings.titleText}}</h1>
                 {{#if settings.buttonUrl.link}}
-                    <div class="hero__cta dl-reveal">
+                    <div class="hero__cta">
                         <ya-kit-link to={{settings.buttonUrl.link}}><span class="dl-btn">{{settings.buttonText}}</span></ya-kit-link>
                     </div>
                 {{/if}}

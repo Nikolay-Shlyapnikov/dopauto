@@ -8,21 +8,26 @@
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="banner__content" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="120" easing="ease-out">
-                <h2 class="dl-banner-title banner__title dl-reveal">
+                <h2 class="dl-banner-title banner__title">
                     <span class="{{if settings.titleMobile 'banner__desktop'}}">{{settings.titleText}}</span>
                     {{#if settings.titleMobile}}
                         <span class="banner__mobile">{{settings.titleMobile}}</span>
                     {{/if}}
                 </h2>
                 {{#if settings.subtitleText}}
-                    <p class="dl-text banner__subtitle dl-reveal">
+                    <p class="dl-text banner__subtitle">
                         <span class="{{if settings.subtitleMobile 'banner__desktop'}}">{{settings.subtitleText}}</span>
                         {{#if settings.subtitleMobile}}
                             <span class="banner__mobile">{{settings.subtitleMobile}}</span>
                         {{/if}}
                     </p>
                 {{/if}}
-                <div class="banner__buttons dl-reveal">
+                <div class="banner__buttons">
+                    {{#if settings.callPhone}}
+                        <a href="tel:{{settings.callPhone}}" class="banner__button banner__button--mobile">
+                            <span class="dl-btn">{{settings.callText}}</span>
+                        </a>
+                    {{/if}}
 @@repeat 3@@
                     {{#if settings.button@@i@@Text}}
                         <ya-kit-link to={{settings.button@@i@@Url.link}} class="banner__button {{if settings.button@@i@@MobileOnly 'banner__button--mobile'}}">
