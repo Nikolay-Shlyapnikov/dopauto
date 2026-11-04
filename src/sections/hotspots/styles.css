@@ -111,6 +111,12 @@
 }
 
 @media (max-width: 767px) {
+    /* Мобильный макет: картинка высотой 290px, справа обрезается; точки остаются на своих местах */
+    .hotspots__spacer {
+        aspect-ratio: auto;
+        height: 290px;
+    }
+
     .hotspots__panel {
         display: none;
     }

@@ -1,4 +1,4 @@
-<div class="dl dl-grid-bg wholesale">
+<div class="dl dl-grid-bg wholesale {{if (eql settings.showOn 'Только ПК') 'wholesale--desktop-only'}} {{if (eql settings.showOn 'Только телефон') 'wholesale--mobile-only'}}">
     <ya-kit-intersection-controller as="wordSeen" trigger-once="1">
         <div class="wholesale__word-box" ref={{wordSeen.elementRef}}>
             <ya-kit-transition is-visible={{wordSeen.isIntersecting}} transition="custom" duration="1200" easing="ease-out">

@@ -101,10 +101,19 @@
 }
 
 @media (max-width: 767px) {
-    /* Снизу место под два преимущества */
     .hero {
         min-height: 530px;
-        padding: 100px var(--dl-gutter) 150px;
+        padding: 60px var(--dl-gutter);
+    }
+
+    /* Мобильный макет: до кнопки 30px, кнопка 164×48 */
+    .hero__content {
+        gap: 30px;
+    }
+
+    .hero__cta .dl-btn {
+        min-width: 164px;
+        height: 48px;
     }
 
     .hero__media--desktop {
@@ -121,16 +130,9 @@
         line-height: 1.06;
     }
 
-    /* Мобильный макет: преимущества столбиком у нижнего края, текст 16px */
+    /* В мобильном макете преимуществ нет (слои скрыты) */
     .hero__usp {
-        bottom: 28px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-
-    .hero__usp-text {
-        font-size: 16px;
+        display: none;
     }
 }
 

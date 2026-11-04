@@ -85,8 +85,9 @@
         text-transform: uppercase;
     }
 
+    /* Мобильный макет: баннер 234px, отступы 40, подзаголовок через 16, кнопки через 20 */
     .banner__content {
-        padding: 28px var(--dl-gutter);
+        padding: 40px var(--dl-gutter);
     }
 
     .banner__bg--desktop {
@@ -94,11 +95,16 @@
     }
 
     .banner {
-        min-height: 200px;
+        min-height: 234px;
     }
 
     .banner__subtitle {
         max-width: none;
+        margin-top: 16px;
+    }
+
+    .banner__buttons {
+        margin-top: 20px;
     }
 
     .banner__bg--mobile {

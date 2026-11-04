@@ -103,7 +103,7 @@
 
     .wholesale__media {
         flex-basis: auto;
-        aspect-ratio: 358 / 240;
+        aspect-ratio: 1 / 1;
     }
 
     .wholesale__title--overlay {
@@ -134,5 +134,19 @@
 
     .wholesale__cta .dl-btn {
         max-width: none;
+    }
+}
+
+/* «Показывать»: в мобильном макете опт стоит после отзывов, на ПК — перед ними.
+   Секцию ставят дважды: одну «только ПК», другую «только телефон» */
+@media (max-width: 767px) {
+    .wholesale--desktop-only {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .wholesale--mobile-only {
+        display: none;
     }
 }
