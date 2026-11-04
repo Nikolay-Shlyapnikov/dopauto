@@ -13,6 +13,7 @@
 /* Кнопка по Figma: 64×31, скругление 7, рамка #B1B1B1, текст 12px Medium */
 .articles__blog {
     display: inline-flex;
+    font-family: var(--dl-font-ui);
     align-items: center;
     height: 31px;
     padding: 0 18px;

@@ -126,16 +126,19 @@
 }
 
 .reviews__name {
+    font-family: var(--dl-font-ui);
     font-size: 10px;
     font-weight: 700;
 }
 
 .reviews__car {
+    font-family: var(--dl-font-ui);
     font-size: 10px;
     font-weight: 500;
 }
 
 .reviews__badge {
+    font-family: var(--dl-font-ui);
     display: inline-flex;
     align-items: center;
     gap: 6px;
