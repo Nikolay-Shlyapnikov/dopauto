@@ -88,14 +88,13 @@
     transform: translateY(0);
 }
 
-/* По ТЗ слово выходит из-за края ближайшего баннера (ниже — «Материалы»), поэтому снизу вверх.
+/* Слово «МАТЕРИАЛ» выплывает слева (решение заказчика, вопреки общему правилу ТЗ «из-за края баннера»).
    Слово «МАТЕРИАЛ» (1092×67) фоном за заголовком: верх на 12px выше заголовка, целиком в отступах */
 .text__bgword {
     position: absolute;
     top: 88px;
     left: var(--dl-gutter);
     width: min(calc(1092 * var(--px)), calc(100% - 2 * var(--dl-gutter)));
-    overflow: hidden;
 }
 
 .text__bgword-inner {
@@ -103,12 +102,14 @@
 }
 
 .text__bgword-inner[data-transition='custom'] {
-    transform: translateY(100%);
-    transition-property: transform;
+    opacity: 0;
+    transform: translateX(-40px);
+    transition-property: opacity, transform;
 }
 
 .text__bgword-inner[data-transition='custom'][data-transition-status='entered'] {
-    transform: translateY(0);
+    opacity: 1;
+    transform: none;
 }
 
 /* Свой заголовок для телефона: строки и отступы пробелами, как в мобильном макете */
