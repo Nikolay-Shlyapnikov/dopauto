@@ -6,7 +6,8 @@
       {
         "count": 3,
         "properties": {
-          "card@@i@@Image": { "$ref": "#/definitions/ImageModel", "title": "Карточка @@i@@: фото" },
+          "card@@i@@Image": { "$ref": "#/definitions/ImageModel", "title": "Карточка @@i@@: фото для компьютера" },
+          "card@@i@@ImageMobile": { "$ref": "#/definitions/ImageModel", "title": "Карточка @@i@@: фото для телефона (пусто — как на компьютере)" },
           "card@@i@@Prefix": { "type": "string", "title": "Карточка @@i@@: текст перед цифрой" },
           "card@@i@@Value": { "type": "string", "title": "Карточка @@i@@: цифра" },
           "card@@i@@Caption": { "type": "string", "title": "Карточка @@i@@: подпись" }

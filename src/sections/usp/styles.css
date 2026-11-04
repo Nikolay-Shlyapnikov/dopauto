@@ -25,6 +25,11 @@
     transition: transform 0.6s ease-out;
 }
 
+/* Отдельное фото для телефона: если задано, фото для компьютера на телефоне скрывается */
+.usp__image--mobile {
+    display: none;
+}
+
 .usp__card:hover .usp__image {
     transform: scale(1.04);
 }
@@ -56,6 +61,14 @@
 }
 
 @media (max-width: 767px) {
+    .usp__image--desktop {
+        display: none;
+    }
+
+    .usp__image--mobile {
+        display: block;
+    }
+
     .usp {
         padding: 40px 0;
     }

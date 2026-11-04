@@ -5,7 +5,10 @@
 @@repeat 3@@
                 <div class="usp__card dl-reveal">
                     {{#if settings.card@@i@@Image.filePath}}
-                        <ya-kit-image class="usp__image" src={{settings.card@@i@@Image}} fit="cover" enable-paranja="{{false}}" />
+                        <ya-kit-image class="usp__image {{if settings.card@@i@@ImageMobile.filePath 'usp__image--desktop'}}" src={{settings.card@@i@@Image}} fit="cover" enable-paranja="{{false}}" />
+                    {{/if}}
+                    {{#if settings.card@@i@@ImageMobile.filePath}}
+                        <ya-kit-image class="usp__image usp__image--mobile" src={{settings.card@@i@@ImageMobile}} fit="cover" enable-paranja="{{false}}" />
                     {{/if}}
                     <p class="usp__text">
                         {{#if settings.card@@i@@Prefix}}<span class="usp__prefix">{{settings.card@@i@@Prefix}} </span>{{/if}}<span class="usp__value">{{settings.card@@i@@Value}}</span>
