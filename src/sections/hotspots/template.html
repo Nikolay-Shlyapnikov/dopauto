@@ -56,19 +56,11 @@
 @@repeat 4@@
                     {{#if settings.spot@@i@@Title}}
                         <div class="hotspots__mobile-card dl-slide">
-                            <span class="dl-mphoto">
                             {{#if settings.spot@@i@@Photo.filePath}}
+                            <span class="dl-mphoto">
                                 <ya-kit-image class="dl-mphoto__img" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
-                            {{else}}
-                            {{#if settings.imageMobile.filePath}}
-                                <ya-kit-image class="dl-mphoto__img" src={{settings.imageMobile}} fit="cover" enable-paranja="{{false}}" />
-                            {{else}}
-                            {{#if settings.image.filePath}}
-                                <ya-kit-image class="dl-mphoto__img" src={{settings.image}} fit="cover" enable-paranja="{{false}}" />
-                            {{/if}}
-                            {{/if}}
-                            {{/if}}
                             </span>
+                            {{/if}}
                             <div class="dl-mtext">
                                 <h3 class="dl-banner-title hotspots__card-title">{{settings.spot@@i@@Title}}</h3>
                                 <p class="dl-text">{{settings.spot@@i@@Text}}</p>

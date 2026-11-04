@@ -72,19 +72,11 @@
 @@repeat 1..5@@
                                 {{#if settings.spot@@i@@Title}}
                                     <div class="materials__mcard dl-slide">
-                                        <span class="dl-mphoto">
                                         {{#if settings.spot@@i@@Photo.filePath}}
+                                        <span class="dl-mphoto">
                                             <ya-kit-image class="dl-mphoto__img" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
-                                        {{else}}
-                                        {{#if settings.material1ImageMobile.filePath}}
-                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material1ImageMobile}} fit="cover" enable-paranja="{{false}}" />
-                                        {{else}}
-                                        {{#if settings.material1Image.filePath}}
-                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
-                                        {{/if}}
-                                        {{/if}}
-                                        {{/if}}
                                         </span>
+                                        {{/if}}
                                         <div class="dl-mtext">
                                         <h3 class="dl-banner-title materials__title">{{settings.spot@@i@@Title}}</h3>
                                         <p class="dl-text">{{settings.spot@@i@@Text}}</p>
@@ -168,19 +160,11 @@
 @@repeat 6..8@@
                                 {{#if settings.spot@@i@@Title}}
                                     <div class="materials__mcard dl-slide">
-                                        <span class="dl-mphoto">
                                         {{#if settings.spot@@i@@Photo.filePath}}
+                                        <span class="dl-mphoto">
                                             <ya-kit-image class="dl-mphoto__img" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
-                                        {{else}}
-                                        {{#if settings.material2ImageMobile.filePath}}
-                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material2ImageMobile}} fit="cover" enable-paranja="{{false}}" />
-                                        {{else}}
-                                        {{#if settings.material2Image.filePath}}
-                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
-                                        {{/if}}
-                                        {{/if}}
-                                        {{/if}}
                                         </span>
+                                        {{/if}}
                                         <div class="dl-mtext">
                                         <h3 class="dl-banner-title materials__title">{{settings.spot@@i@@Title}}</h3>
                                         <p class="dl-text">{{settings.spot@@i@@Text}}</p>
