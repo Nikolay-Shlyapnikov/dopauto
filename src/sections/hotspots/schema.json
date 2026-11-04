@@ -6,6 +6,10 @@
       "$ref": "#/definitions/ImageModel",
       "title": "Фото баннера"
     },
+    "imageMobile": {
+      "$ref": "#/definitions/ImageModel",
+      "title": "Фото баннера для телефона (пусто — как на компьютере)"
+    },
     "introTitle": {
       "type": "string",
       "title": "Заголовок панели на телефоне",

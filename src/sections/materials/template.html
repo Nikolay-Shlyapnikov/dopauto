@@ -56,8 +56,12 @@
                             <ya-kit-carousel class="dl-slides" controller={{slides}} count="{{add 1 (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
                                 <div class="materials__mcard dl-slide">
                                     <span class="dl-mphoto">
+                                    {{#if settings.material1ImageMobile.filePath}}
+                                        <ya-kit-image class="dl-mphoto__img" src={{settings.material1ImageMobile}} fit="cover" enable-paranja="{{false}}" />
+                                    {{else}}
                                     {{#if settings.material1Image.filePath}}
                                         <ya-kit-image class="dl-mphoto__img" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
+                                    {{/if}}
                                     {{/if}}
                                     </span>
                                     <div class="dl-mtext">
@@ -72,8 +76,12 @@
                                         {{#if settings.spot@@i@@Photo.filePath}}
                                             <ya-kit-image class="dl-mphoto__img" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
                                         {{else}}
+                                        {{#if settings.material1ImageMobile.filePath}}
+                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material1ImageMobile}} fit="cover" enable-paranja="{{false}}" />
+                                        {{else}}
                                         {{#if settings.material1Image.filePath}}
                                             <ya-kit-image class="dl-mphoto__img" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
+                                        {{/if}}
                                         {{/if}}
                                         {{/if}}
                                         </span>
@@ -144,8 +152,12 @@
                             <ya-kit-carousel class="dl-slides" controller={{slides}} count="{{add 1 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
                                 <div class="materials__mcard dl-slide">
                                     <span class="dl-mphoto">
+                                    {{#if settings.material2ImageMobile.filePath}}
+                                        <ya-kit-image class="dl-mphoto__img" src={{settings.material2ImageMobile}} fit="cover" enable-paranja="{{false}}" />
+                                    {{else}}
                                     {{#if settings.material2Image.filePath}}
                                         <ya-kit-image class="dl-mphoto__img" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
+                                    {{/if}}
                                     {{/if}}
                                     </span>
                                     <div class="dl-mtext">
@@ -160,8 +172,12 @@
                                         {{#if settings.spot@@i@@Photo.filePath}}
                                             <ya-kit-image class="dl-mphoto__img" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
                                         {{else}}
+                                        {{#if settings.material2ImageMobile.filePath}}
+                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material2ImageMobile}} fit="cover" enable-paranja="{{false}}" />
+                                        {{else}}
                                         {{#if settings.material2Image.filePath}}
                                             <ya-kit-image class="dl-mphoto__img" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
+                                        {{/if}}
                                         {{/if}}
                                         {{/if}}
                                         </span>

@@ -16,6 +16,10 @@
       "$ref": "#/definitions/ImageModel",
       "title": "Материал 1: фото баннера"
     },
+    "material1ImageMobile": {
+      "$ref": "#/definitions/ImageModel",
+      "title": "Материал 1: фото баннера для телефона (пусто — как на компьютере)"
+    },
     "material2Name": {
       "type": "string",
       "title": "Материал 2: название",
@@ -29,6 +33,10 @@
     "material2Image": {
       "$ref": "#/definitions/ImageModel",
       "title": "Материал 2: фото баннера"
+    },
+    "material2ImageMobile": {
+      "$ref": "#/definitions/ImageModel",
+      "title": "Материал 2: фото баннера для телефона (пусто — как на компьютере)"
     },
     "@@repeat": [
       {
