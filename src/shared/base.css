@@ -1,5 +1,6 @@
 .dl {
-    --dl-font: 'Inter', var(--ys-font-family), sans-serif;
+    /* Шрифт берётся из темы сайта (Редактор сайта → Тема → Шрифт): сменили там — сменился и лендинг */
+    --dl-font: var(--ys-font-family), 'Inter', sans-serif;
     --dl-black: #000000;
     --dl-white: #FFFFFF;
     --dl-word: #E2E2E2;
