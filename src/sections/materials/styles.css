@@ -161,6 +161,12 @@
         color: var(--dl-white);
     }
 
+    /* Слайд карусели KIT задаёт цвет текста из темы (тёмный) — возвращаем белый */
+    .materials__mcard,
+    .materials__mcard * {
+        color: var(--dl-white);
+    }
+
     .materials__mcard .dl-text {
         font-size: 14px;
     }

@@ -132,8 +132,11 @@
         padding: 28px var(--dl-gutter) 24px;
     }
 
-    .hotspots__mobile-card {
+    /* Слайд карусели KIT задаёт цвет текста из темы (тёмный) — возвращаем белый */
+    .hotspots__mobile-card,
+    .hotspots__mobile-card * {
         display: block;
+        color: var(--dl-white);
     }
 
     .hotspots__mobile .dl-text {
