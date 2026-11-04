@@ -53,7 +53,7 @@
                     </div>
                     <div class="materials__mobile">
                         <ya-kit-carousel-controller as="slides">
-                            <ya-kit-carousel controller={{slides}} count="{{add 1 (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
+                            <ya-kit-carousel class="dl-slides" controller={{slides}} count="{{add 1 (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
                                 <div class="materials__mcard">
                                     <h3 class="dl-banner-title materials__title">{{settings.material1Name}}</h3>
                                     <p class="dl-text">{{settings.material1Text}}</p>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="materials__mobile">
                         <ya-kit-carousel-controller as="slides">
-                            <ya-kit-carousel controller={{slides}} count="{{add 1 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
+                            <ya-kit-carousel class="dl-slides" controller={{slides}} count="{{add 1 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
                                 <div class="materials__mcard">
                                     <h3 class="dl-banner-title materials__title">{{settings.material2Name}}</h3>
                                     <p class="dl-text">{{settings.material2Text}}</p>
