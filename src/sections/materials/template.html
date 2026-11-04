@@ -55,17 +55,35 @@
                         <ya-kit-carousel-controller as="slides">
                             <ya-kit-carousel class="dl-slides" controller={{slides}} count="{{add 1 (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
                                 <div class="materials__mcard dl-slide">
-                                    <h3 class="dl-banner-title materials__title">{{settings.material1Name}}</h3>
-                                    <p class="dl-text">{{settings.material1Text}}</p>
+                                    <span class="dl-mphoto">
+                                    {{#if settings.material1Image.filePath}}
+                                        <ya-kit-image class="dl-mphoto__img" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
+                                    {{/if}}
+                                    </span>
+                                    <div class="dl-mtext">
+                                        <h3 class="dl-banner-title materials__title">{{settings.material1Name}}</h3>
+                                        <p class="dl-text">{{settings.material1Text}}</p>
+                                    </div>
                                 </div>
 @@repeat 1..5@@
                                 {{#if settings.spot@@i@@Title}}
                                     <div class="materials__mcard dl-slide">
+                                        <span class="dl-mphoto">
+                                        {{#if settings.spot@@i@@Photo.filePath}}
+                                            <ya-kit-image class="dl-mphoto__img" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
+                                        {{else}}
+                                        {{#if settings.material1Image.filePath}}
+                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material1Image}} fit="cover" enable-paranja="{{false}}" />
+                                        {{/if}}
+                                        {{/if}}
+                                        </span>
+                                        <div class="dl-mtext">
                                         <h3 class="dl-banner-title materials__title">{{settings.spot@@i@@Title}}</h3>
                                         <p class="dl-text">{{settings.spot@@i@@Text}}</p>
                                         {{#if settings.spot@@i@@Note}}
                                             <p class="materials__note">{{settings.spot@@i@@Note}}</p>
                                         {{/if}}
+                                        </div>
                                     </div>
                                 {{/if}}
 @@end@@
@@ -125,17 +143,35 @@
                         <ya-kit-carousel-controller as="slides">
                             <ya-kit-carousel class="dl-slides" controller={{slides}} count="{{add 1 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
                                 <div class="materials__mcard dl-slide">
-                                    <h3 class="dl-banner-title materials__title">{{settings.material2Name}}</h3>
-                                    <p class="dl-text">{{settings.material2Text}}</p>
+                                    <span class="dl-mphoto">
+                                    {{#if settings.material2Image.filePath}}
+                                        <ya-kit-image class="dl-mphoto__img" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
+                                    {{/if}}
+                                    </span>
+                                    <div class="dl-mtext">
+                                        <h3 class="dl-banner-title materials__title">{{settings.material2Name}}</h3>
+                                        <p class="dl-text">{{settings.material2Text}}</p>
+                                    </div>
                                 </div>
 @@repeat 6..8@@
                                 {{#if settings.spot@@i@@Title}}
                                     <div class="materials__mcard dl-slide">
+                                        <span class="dl-mphoto">
+                                        {{#if settings.spot@@i@@Photo.filePath}}
+                                            <ya-kit-image class="dl-mphoto__img" src={{settings.spot@@i@@Photo}} fit="cover" enable-paranja="{{false}}" />
+                                        {{else}}
+                                        {{#if settings.material2Image.filePath}}
+                                            <ya-kit-image class="dl-mphoto__img" src={{settings.material2Image}} fit="cover" enable-paranja="{{false}}" />
+                                        {{/if}}
+                                        {{/if}}
+                                        </span>
+                                        <div class="dl-mtext">
                                         <h3 class="dl-banner-title materials__title">{{settings.spot@@i@@Title}}</h3>
                                         <p class="dl-text">{{settings.spot@@i@@Text}}</p>
                                         {{#if settings.spot@@i@@Note}}
                                             <p class="materials__note">{{settings.spot@@i@@Note}}</p>
                                         {{/if}}
+                                        </div>
                                     </div>
                                 {{/if}}
 @@end@@

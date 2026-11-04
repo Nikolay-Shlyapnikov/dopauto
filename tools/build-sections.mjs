@@ -30,7 +30,9 @@ const expandTemplate = (html) => html
         const [from, to] = b ? [Number(a), Number(b)] : [1, Number(a)];
         return Array.from({ length: to - from + 1 }, (__, k) => body.replaceAll("@@i@@", String(from + k))).join("");
     })
-    .replace(/@@word:([\w-]+)@@/g, inlineWord);
+    .replace(/@@word:([\w-]+)@@/g, inlineWord)
+    // KIT's editor fails on large templates; indentation is most of the weight and never renders
+    .replace(/^[ \t]+/gm, "");
 
 const expandSchema = (schema) => {
     const groups = schema.properties["@@repeat"];

@@ -131,6 +131,25 @@
     scroll-snap-align: start;
 }
 
+/* Фото и текст карточки мобильной карусели (ассортимент, материалы): фото на всю ширину, высота как в макете */
+.dl-mphoto {
+    position: relative;
+    display: block;
+    height: 290px;
+    overflow: hidden;
+}
+
+.dl-mphoto__img {
+    position: absolute !important;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dl-mtext {
+    padding: 28px var(--dl-gutter) 0;
+}
+
 /* Стрелка на краю карусели: дальше листать некуда */
 .dl-arrow--off {
     opacity: 0.35;

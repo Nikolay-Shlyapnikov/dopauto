@@ -121,15 +121,15 @@
         display: none;
     }
 
-    /* На телефоне плюсов нет: карточки листаются свайпом и стрелками (карусель KIT) */
-    .hotspots__point {
+    /* На телефоне общей картинки с плюсами нет: фото и текст листаются вместе в карусели */
+    .hotspots__stage {
         display: none;
     }
 
     .hotspots__mobile {
         position: relative;
         display: block;
-        padding: 28px var(--dl-gutter) 24px;
+        padding: 0 0 24px;
     }
 
     /* Слайд карусели KIT задаёт цвет текста из темы (тёмный) — возвращаем белый */
@@ -147,5 +147,6 @@
         display: flex;
         justify-content: space-between;
         margin-top: 40px;
+        padding: 0 var(--dl-gutter);
     }
 }
