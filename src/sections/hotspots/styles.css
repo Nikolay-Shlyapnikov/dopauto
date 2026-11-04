@@ -121,28 +121,19 @@
         display: none;
     }
 
-    .hotspots__point .dl-plus {
-        width: 26px;
-        height: 26px;
-        box-shadow: 0 0 0 3px rgba(224, 5, 14, 0.55);
+    /* На телефоне плюсов нет: карточки листаются свайпом и стрелками (карусель KIT) */
+    .hotspots__point {
+        display: none;
     }
 
     .hotspots__mobile {
         position: relative;
-        display: grid;
+        display: block;
         padding: 28px var(--dl-gutter) 24px;
     }
 
     .hotspots__mobile-card {
-        grid-area: 1 / 1;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.4s, visibility 0.4s;
-    }
-
-    .hotspots__mobile-card--active {
-        opacity: 1;
-        visibility: visible;
+        display: block;
     }
 
     .hotspots__mobile .dl-text {

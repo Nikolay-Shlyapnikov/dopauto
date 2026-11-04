@@ -36,26 +36,30 @@
             </div>
         </div>
         <div class="hotspots__mobile">
-            <div class="hotspots__mobile-card {{if (eql spot.value 0) 'hotspots__mobile-card--active'}}">
-                <h3 class="dl-banner-title hotspots__card-title">{{settings.introTitle}}</h3>
-                <p class="dl-text">{{settings.introText}}</p>
-            </div>
+            <ya-kit-carousel-controller as="slides">
+                <ya-kit-carousel controller={{slides}} count="{{add 1 (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
+                    <div class="hotspots__mobile-card">
+                        <h3 class="dl-banner-title hotspots__card-title">{{settings.introTitle}}</h3>
+                        <p class="dl-text">{{settings.introText}}</p>
+                    </div>
 @@repeat 4@@
-            {{#if settings.spot@@i@@Title}}
-                <div class="hotspots__mobile-card {{if (eql spot.value @@i@@) 'hotspots__mobile-card--active'}}">
-                    <h3 class="dl-banner-title hotspots__card-title">{{settings.spot@@i@@Title}}</h3>
-                    <p class="dl-text">{{settings.spot@@i@@Text}}</p>
-                </div>
-            {{/if}}
+                    {{#if settings.spot@@i@@Title}}
+                        <div class="hotspots__mobile-card">
+                            <h3 class="dl-banner-title hotspots__card-title">{{settings.spot@@i@@Title}}</h3>
+                            <p class="dl-text">{{settings.spot@@i@@Text}}</p>
+                        </div>
+                    {{/if}}
 @@end@@
-            <div class="hotspots__arrows">
-                <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value 0) (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (subtract spot.value 1))}}">
-                    <span class="dl-arrow">&larr;</span>
-                </ya-kit-clickable-area>
-                <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0))) 0 (add spot.value 1))}}">
-                    <span class="dl-arrow">&rarr;</span>
-                </ya-kit-clickable-area>
-            </div>
+                </ya-kit-carousel>
+                <div class="hotspots__arrows">
+                    <ya-kit-clickable-area on-press={{slides.onPrevSlide}}>
+                        <span class="dl-arrow {{if (not slides.controls.isPrevEnabled) 'dl-arrow--off'}}">&larr;</span>
+                    </ya-kit-clickable-area>
+                    <ya-kit-clickable-area on-press={{slides.onNextSlide}}>
+                        <span class="dl-arrow {{if (not slides.controls.isNextEnabled) 'dl-arrow--off'}}">&rarr;</span>
+                    </ya-kit-clickable-area>
+                </div>
+            </ya-kit-carousel-controller>
         </div>
     </div>
 </ya-kit-value-controller>

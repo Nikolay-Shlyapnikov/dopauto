@@ -119,6 +119,13 @@
     transform: scale(1.06);
 }
 
+/* Стрелка на краю карусели: дальше листать некуда */
+.dl-arrow--off {
+    opacity: 0.35;
+    cursor: default;
+    pointer-events: none;
+}
+
 .dl-arrow--outline {
     border: 1px solid var(--dl-word);
 }

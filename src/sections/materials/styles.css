@@ -142,45 +142,40 @@
     opacity: 0.6;
 }
 
+/* Мобильная карусель карточек: на компьютере не показывается */
+.materials__mobile {
+    display: none;
+}
+
 @media (max-width: 767px) {
+    /* На телефоне плюсов нет: описание и особенности листаются свайпом и стрелками */
+    .materials__point,
+    .materials__panel {
+        display: none;
+    }
+
+    .materials__mobile {
+        display: block;
+        padding: 28px var(--dl-gutter) 24px;
+        background: #111111;
+        color: var(--dl-white);
+    }
+
+    .materials__mcard .dl-text {
+        font-size: 14px;
+    }
+
+    .materials__mnav {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+    }
+
     .materials__tabs {
         padding-bottom: 20px;
     }
 
     .materials__slide {
         animation: none;
-    }
-
-    .materials__panel {
-        position: static;
-        width: auto;
-        min-width: 0;
-        min-height: 400px;
-    }
-
-    .materials__card {
-        transform: none;
-    }
-
-    .materials__point .dl-plus {
-        width: 28px;
-        height: 28px;
-    }
-
-    .materials__card--default,
-    .materials__card-body {
-        padding: 28px var(--dl-gutter) 0;
-    }
-
-    .materials__card .dl-text {
-        font-size: 14px;
-    }
-
-    .materials__photo {
-        display: none;
-    }
-
-    .materials__nav {
-        padding: 32px var(--dl-gutter) 24px;
     }
 }
