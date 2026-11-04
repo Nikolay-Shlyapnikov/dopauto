@@ -1,0 +1,12 @@
+{
+  "name": "dopauto-landing",
+  "private": true,
+  "description": "Лендинг ДопАвто: кастомные секции Яндекс KIT",
+  "scripts": {
+    "build": "node tools/build-sections.mjs",
+    "upscale": "node tools/upscale.mjs"
+  },
+  "devDependencies": {
+    "sharp": "0.33.5"
+  }
+}
