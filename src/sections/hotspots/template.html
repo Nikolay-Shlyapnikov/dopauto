@@ -38,13 +38,13 @@
         <div class="hotspots__mobile">
             <ya-kit-carousel-controller as="slides">
                 <ya-kit-carousel class="dl-slides" controller={{slides}} count="{{add 1 (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0))}}" columns="1" columns-touch="1" h-gap="300" controls-alignment="none">
-                    <div class="hotspots__mobile-card">
+                    <div class="hotspots__mobile-card dl-slide">
                         <h3 class="dl-banner-title hotspots__card-title">{{settings.introTitle}}</h3>
                         <p class="dl-text">{{settings.introText}}</p>
                     </div>
 @@repeat 4@@
                     {{#if settings.spot@@i@@Title}}
-                        <div class="hotspots__mobile-card">
+                        <div class="hotspots__mobile-card dl-slide">
                             <h3 class="dl-banner-title hotspots__card-title">{{settings.spot@@i@@Title}}</h3>
                             <p class="dl-text">{{settings.spot@@i@@Text}}</p>
                         </div>
