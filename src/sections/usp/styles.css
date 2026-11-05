@@ -10,7 +10,7 @@
 
 .usp__card {
     position: relative;
-    aspect-ratio: 240 / 276;
+    aspect-ratio: 240 / 370;
     overflow: hidden;
     border-radius: 8px;
     background: var(--dl-black);
@@ -58,6 +58,12 @@
 
 .usp__caption {
     display: block;
+    white-space: pre-line;
+}
+
+/* «Подпись в строку с цифрой»: «На 20-25% дешевле,⏎чем на маркетплейсах» — перенос задаётся Enter в подписи */
+.usp__text--inline .usp__caption {
+    display: inline;
 }
 
 @media (max-width: 767px) {
@@ -78,8 +84,9 @@
         gap: 20px;
     }
 
+    /* Мобильный макет: карточки квадратные, 350×350 */
     .usp__card {
-        aspect-ratio: 358 / 240;
+        aspect-ratio: 1 / 1;
     }
 
     .usp__value {

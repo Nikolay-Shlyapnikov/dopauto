@@ -6,16 +6,48 @@
       {
         "count": 3,
         "properties": {
-          "card@@i@@Image": { "$ref": "#/definitions/ImageModel", "title": "Карточка @@i@@: фото для компьютера" },
-          "card@@i@@ImageMobile": { "$ref": "#/definitions/ImageModel", "title": "Карточка @@i@@: фото для телефона (пусто — как на компьютере)" },
-          "card@@i@@Prefix": { "type": "string", "title": "Карточка @@i@@: текст перед цифрой" },
-          "card@@i@@Value": { "type": "string", "title": "Карточка @@i@@: цифра" },
-          "card@@i@@Caption": { "type": "string", "title": "Карточка @@i@@: подпись" }
+          "card@@i@@Image": {
+            "$ref": "#/definitions/ImageModel",
+            "title": "Карточка @@i@@: фото для компьютера"
+          },
+          "card@@i@@ImageMobile": {
+            "$ref": "#/definitions/ImageModel",
+            "title": "Карточка @@i@@: фото для телефона (пусто — как на компьютере)"
+          },
+          "card@@i@@Prefix": {
+            "type": "string",
+            "title": "Карточка @@i@@: текст перед цифрой"
+          },
+          "card@@i@@Value": {
+            "type": "string",
+            "title": "Карточка @@i@@: цифра"
+          },
+          "card@@i@@Caption": {
+            "$ref": "#/definitions/TextArea",
+            "title": "Карточка @@i@@: подпись (Enter — перенос строки)"
+          },
+          "card@@i@@CaptionInline": {
+            "type": "boolean",
+            "title": "Карточка @@i@@: подпись в строку с цифрой (как «На 20-25% дешевле,»)"
+          }
         },
         "defaults": [
-          { "card@@i@@Prefix": "", "card@@i@@Value": "100 000+", "card@@i@@Caption": "заказов" },
-          { "card@@i@@Prefix": "", "card@@i@@Value": "40 000+", "card@@i@@Caption": "отзывов" },
-          { "card@@i@@Prefix": "На", "card@@i@@Value": "20-25%", "card@@i@@Caption": "дешевле, чем на маркетплейсах" }
+          {
+            "card@@i@@Prefix": "",
+            "card@@i@@Value": "100 000+",
+            "card@@i@@Caption": "заказов"
+          },
+          {
+            "card@@i@@Prefix": "",
+            "card@@i@@Value": "40 000+",
+            "card@@i@@Caption": "отзывов"
+          },
+          {
+            "card@@i@@Prefix": "На",
+            "card@@i@@Value": "20-25%",
+            "card@@i@@Caption": "дешевле,\nчем на маркетплейсах",
+            "card@@i@@CaptionInline": true
+          }
         ]
       }
     ]

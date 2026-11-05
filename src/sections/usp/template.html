@@ -10,7 +10,7 @@
                     {{#if settings.card@@i@@ImageMobile.filePath}}
                         <ya-kit-image class="usp__image usp__image--mobile" src={{settings.card@@i@@ImageMobile}} fit="cover" enable-paranja="{{false}}" />
                     {{/if}}
-                    <p class="usp__text">
+                    <p class="usp__text {{if settings.card@@i@@CaptionInline 'usp__text--inline'}}">
                         {{#if settings.card@@i@@Prefix}}<span class="usp__prefix">{{settings.card@@i@@Prefix}} </span>{{/if}}<span class="usp__value">{{settings.card@@i@@Value}}</span>
                         <span class="usp__caption">{{settings.card@@i@@Caption}}</span>
                     </p>
