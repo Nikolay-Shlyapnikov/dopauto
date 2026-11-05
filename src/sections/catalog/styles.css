@@ -41,6 +41,12 @@
     transition: transform 0.3s ease-out;
 }
 
+/* Размытая заглушка ya-kit-image на прозрачных фото товаров выглядит как фон, который потом исчезает —
+   делаем её невидимой (место она занимает, поэтому раскладка не меняется) */
+.catalog__image img[aria-hidden='true'] {
+    opacity: 0 !important;
+}
+
 .catalog__link:hover .catalog__image {
     transform: translateY(-6px);
 }
