@@ -43,6 +43,9 @@
                                     {{/if}}
                                     <p class="reviews__text">{{settings.review@@i@@Text}}</p>
                                 </div>
+                                {{#if settings.review@@i@@Url.link}}
+                                    <ya-kit-link to={{settings.review@@i@@Url.link}} class="reviews__link" aria-label="{{settings.review@@i@@Name}}"></ya-kit-link>
+                                {{/if}}
                             </div>
                         </div>
                 {{/if}}

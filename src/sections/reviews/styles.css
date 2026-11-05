@@ -57,6 +57,7 @@
 }
 
 .reviews__card {
+    position: relative;
     flex: 1 1 auto;
     display: grid;
     grid-template-columns: 454fr 306fr;
@@ -64,6 +65,13 @@
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Ссылка отзыва — прозрачный слой на всю карточку (своя у каждого отзыва) */
+.reviews__link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
 }
 
 .reviews__media {

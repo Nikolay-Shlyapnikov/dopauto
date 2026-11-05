@@ -15,6 +15,10 @@
             "type": "string",
             "title": "Отзыв @@i@@: имя (пусто — не показывать)"
           },
+          "review@@i@@Url": {
+            "$ref": "#/definitions/LinkSource",
+            "title": "Отзыв @@i@@: ссылка карточки (пусто — без ссылки)"
+          },
           "review@@i@@Car": {
             "type": "string",
             "title": "Отзыв @@i@@: автомобиль"
