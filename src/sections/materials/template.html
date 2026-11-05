@@ -1,6 +1,6 @@
 <ya-kit-value-controller initial-value="{{0}}" as="mat">
         <div class="dl materials">
-            <div class="materials__tabs">
+            <div class="materials__tabs dl-grid-bg">
                 <ya-kit-clickable-area on-press="{{call mat.makeChangeHandler 0}}">
                     <span class="materials__tab {{if (eql mat.value 0) 'materials__tab--active'}}">{{settings.material1Name}}</span>
                 </ya-kit-clickable-area>
