@@ -46,9 +46,9 @@
                         {{/if}}
 @@end@@
                         <div class="materials__nav">
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte 1 spot.value) (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0)) (subtract spot.value 1))}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value 0) (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0)) (subtract spot.value 1))}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
                             {{#if (gte spot.value 1)}}<span class="materials__counter">{{spot.value}}/{{add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0)}}</span>{{/if}}
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte spot.value (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0))) 1 (add spot.value 1))}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte spot.value (add (add (add (add (if settings.spot1Title 1 0) (if settings.spot2Title 1 0)) (if settings.spot3Title 1 0)) (if settings.spot4Title 1 0)) (if settings.spot5Title 1 0))) 0 (add spot.value 1))}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
                         </div>
                     </div>
                     <div class="materials__mobile">
@@ -134,9 +134,9 @@
                         {{/if}}
 @@end@@
                         <div class="materials__nav">
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte 6 spot.value) (add 5 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0))) (subtract spot.value 1))}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value 0) (add 5 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0))) (if (eql spot.value 6) 0 (subtract spot.value 1)))}}"><span class="dl-arrow">&larr;</span></ya-kit-clickable-area>
                             {{#if (gte spot.value 1)}}<span class="materials__counter">{{subtract spot.value 5}}/{{add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0)}}</span>{{/if}}
-                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (gte spot.value 6) (if (gte spot.value (add 5 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0)))) 6 (add spot.value 1)) 6)}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
+                            <ya-kit-clickable-area on-press="{{call spot.makeChangeHandler (if (eql spot.value 0) 6 (if (gte spot.value (add 5 (add (add (if settings.spot6Title 1 0) (if settings.spot7Title 1 0)) (if settings.spot8Title 1 0)))) 0 (add spot.value 1)))}}"><span class="dl-arrow">&rarr;</span></ya-kit-clickable-area>
                         </div>
                     </div>
                     <div class="materials__mobile">
