@@ -62,8 +62,15 @@
 }
 
 /* «Подпись в строку с цифрой»: «На 20-25% дешевле,⏎чем на маркетплейсах» — перенос задаётся Enter в подписи */
+.usp__text--inline {
+    right: 10px;
+    white-space: nowrap;
+}
+
+/* Переносы только там, где в подписи нажат Enter: иначе Inter (шире шрифта макета) рвёт «На 20-25% дешевле,» */
 .usp__text--inline .usp__caption {
     display: inline;
+    white-space: pre;
 }
 
 @media (max-width: 767px) {
