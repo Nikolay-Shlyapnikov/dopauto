@@ -63,7 +63,7 @@
 
 /* Слово «ДЕТАЛИ» (804×75): на компьютере у нижнего края справа, целиком в пределах отступов */
 .text--word {
-    padding-bottom: calc(75 * var(--px) + 24px);
+    padding-bottom: calc(68 * var(--dl-wpx) + 24px);
 }
 
 .text__word-box {
@@ -75,8 +75,8 @@
 }
 
 .text__word {
-    width: calc(804 * var(--px));
-    margin-left: calc(100% - 804 * var(--px) - var(--dl-gutter));
+    width: calc(729 * var(--dl-wpx));
+    margin-left: calc(100% - 729 * var(--dl-wpx) - var(--dl-gutter));
 }
 
 .text__word[data-transition='custom'] {
@@ -94,7 +94,7 @@
     position: absolute;
     top: 88px;
     left: var(--dl-gutter);
-    width: min(calc(1092 * var(--px)), calc(100% - 2 * var(--dl-gutter)));
+    width: calc(1092 * var(--dl-wpx));
 }
 
 .text__bgword-inner {

@@ -1,6 +1,6 @@
 .wholesale {
     --px: calc(100vw / 1440);
-    padding: calc((100vw - 2 * var(--dl-gutter)) * 76 / 1879 + 70px) 0 100px;
+    padding: calc(68 * var(--dl-wpx) + 70px) 0 100px;
 }
 
 .wholesale__word-box {
@@ -12,8 +12,9 @@
 }
 
 .wholesale__word {
-    width: calc(100% - 2 * var(--dl-gutter));
-    margin-left: var(--dl-gutter);
+    /* В макете слово шире экрана и уходит за края (начинается за левым краем) */
+    width: calc(1704 * var(--dl-wpx));
+    margin-left: calc(-60 * var(--dl-wpx));
 }
 
 .wholesale__word[data-transition='custom'] {

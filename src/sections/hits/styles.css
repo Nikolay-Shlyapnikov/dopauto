@@ -18,8 +18,8 @@
 }
 
 .hits__word {
-    width: calc(1057 * var(--px));
-    margin-left: calc(8 * var(--px));
+    width: calc(1049 * var(--dl-wpx));
+    margin-left: calc(8 * var(--dl-wpx));
 }
 
 .hits__word[data-transition='custom'] {

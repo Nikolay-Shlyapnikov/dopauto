@@ -12,6 +12,9 @@
     --dl-grid: #F0F0F0;
     --dl-gutter: 30px;
     --dl-content: 760px;
+    /* Масштаб крупных слов AKONY: один на все секции, ширина слова в px макета 1440 × --dl-wpx.
+       Высота букв везде одна (68px на 1440): у «ДЕТАЛИ» и «СОТРУДНИЧЕСТВО» исходные SVG крупнее, их ширины уменьшены */
+    --dl-wpx: calc(100vw / 1440);
     position: relative;
     font-family: var(--dl-font);
     color: var(--dl-black);

@@ -26,8 +26,8 @@
 }
 
 .reviews__word {
-    width: calc(867 * var(--px));
-    margin-left: calc(100% - 867 * var(--px) - var(--dl-gutter));
+    width: calc(867 * var(--dl-wpx));
+    margin-left: calc(100% - 867 * var(--dl-wpx) - var(--dl-gutter));
 }
 
 .reviews__word[data-transition='custom'] {
