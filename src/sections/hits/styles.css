@@ -32,12 +32,12 @@
 }
 
 @media (max-width: 767px) {
+    /* Крупных слов на телефоне нет */
     .hits {
-        padding: 40px 0 120px;
+        padding: 40px 0 60px;
     }
 
-    .hits__word {
-        width: 340px;
-        margin-left: var(--dl-gutter);
+    .hits__word-box {
+        display: none;
     }
 }

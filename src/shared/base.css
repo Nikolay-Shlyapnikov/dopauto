@@ -247,11 +247,8 @@
         line-height: 1.5;
     }
 
-    .dl-word--desktop {
-        display: none;
-    }
-
-    .dl-word--mobile {
-        display: block;
+    /* Крупных слов AKONY на телефоне нет (решение дизайнера) */
+    .dl-word {
+        display: none !important;
     }
 }

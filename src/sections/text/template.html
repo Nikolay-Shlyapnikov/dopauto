@@ -1,4 +1,4 @@
-<div class="dl dl-grid-bg text {{if settings.layoutBelow 'text--below'}} {{if (eql settings.word 'ДЕТАЛИ') 'text--word'}} {{if (eql settings.word 'МАТЕРИАЛ') 'text--material'}}" style="--indent: {{if settings.line2Indent settings.line2Indent 245}}; --pw: {{if settings.paragraphsWidth settings.paragraphsWidth 312}}; --left: {{if settings.headingLeft settings.headingLeft 244}}">
+<div class="dl dl-grid-bg text {{if settings.layoutBelow 'text--below'}} {{if (eql settings.word 'ДЕТАЛИ') 'text--word'}} {{if (eql settings.word 'МАТЕРИАЛ') 'text--material'}}" style="--indent: {{if settings.line2Indent settings.line2Indent 245}}; --pw: {{if settings.paragraphsWidth settings.paragraphsWidth 312}}">
     {{#if (eql settings.word 'МАТЕРИАЛ')}}
         <ya-kit-intersection-controller as="bgSeen" trigger-once="1">
             <div class="text__bgword" ref={{bgSeen.elementRef}}>
@@ -11,10 +11,12 @@
     <ya-kit-intersection-controller as="seen" trigger-once="1">
         <div class="text__inner" ref={{seen.elementRef}}>
             <ya-kit-transition is-visible={{seen.isIntersecting}} transition="custom" duration="800" stagger="150" easing="ease-out">
-                <h2 class="dl-h1 text__heading text__heading--mobile {{if settings.headingMobile 'text__heading--custom'}} dl-reveal">
+                <h2 class="dl-h1 text__heading text__heading--mobile {{if settings.mobileLine1 'text__heading--custom'}} dl-reveal">
                     <span class="text__line text__line--1">{{settings.line1}}</span>
                     <span class="text__line text__line--2">{{settings.line2}}</span>
-                    {{#if settings.headingMobile}}<span class="text__custom">{{settings.headingMobile}}</span>{{/if}}
+@@repeat 4@@
+                    {{#if settings.mobileLine@@i@@}}<span class="text__mline" style="margin-left: calc({{settings.mobileLine@@i@@Indent}} * 100vw / 390)">{{settings.mobileLine@@i@@}}</span>{{/if}}
+@@end@@
                 </h2>
                 <div class="text__paragraphs dl-reveal">
 @@repeat 2@@

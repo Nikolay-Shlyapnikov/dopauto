@@ -196,9 +196,9 @@
         padding-left: var(--dl-gutter);
     }
 
-    .reviews__word {
-        width: calc(100% - 2 * var(--dl-gutter));
-        margin-left: var(--dl-gutter);
+    /* Крупных слов на телефоне нет */
+    .reviews__word-box {
+        display: none;
     }
 
     .reviews__slider {

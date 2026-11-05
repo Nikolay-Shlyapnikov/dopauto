@@ -39,12 +39,12 @@
     margin-left: 40px;
 }
 
-/* «Абзацы под заголовком» (2-й и 4-й блоки): блок шириной по заголовку сдвинут слева на --left,
-   абзацы под ним прижаты к правому краю второй строки */
+/* «Абзацы под заголовком» (2-й и 4-й блоки): блок шириной по заголовку стоит по центру
+   (в макете 244–1195 и 370–1074 из 1440 — оба по центру), абзацы прижаты к правому краю второй строки */
 .text--below .text__inner {
     width: max-content;
     max-width: 100%;
-    margin: 0 0 0 calc(var(--left, 244) * var(--px));
+    margin: 0 auto;
     padding: 0;
 }
 
@@ -112,14 +112,16 @@
     transform: none;
 }
 
-/* Свой заголовок для телефона: строки и отступы пробелами, как в мобильном макете */
-.text__custom {
+/* Свой заголовок для телефона: до 4 строк, у каждой отступ из настроек (как «лесенка» в мобильном макете) */
+.text__mline {
     display: none;
-    white-space: pre-wrap;
+    white-space: nowrap;
 }
 
+/* Номер абзаца стоит по первой строке текста */
 .text__paragraph {
     display: flex;
+    align-items: baseline;
     gap: 8px;
 }
 
@@ -134,19 +136,15 @@
         padding: 60px 0;
     }
 
-    /* На телефоне слово над заголовком, на всю ширину между отступами */
-    .text--word {
-        padding: calc((100vw - 2 * var(--dl-gutter)) * 75 / 804 + 84px) 0 60px;
+    /* Крупных слов на телефоне нет (решение дизайнера) — и места под них тоже */
+    .text--word,
+    .text--material {
+        padding: 60px 0;
     }
 
-    .text__word-box {
-        top: 60px;
-        bottom: auto;
-    }
-
-    .text__word {
-        width: calc(100% - 2 * var(--dl-gutter));
-        margin-left: var(--dl-gutter);
+    .text__word-box,
+    .text__bgword {
+        display: none;
     }
 
     .text__paragraphs {
@@ -160,22 +158,11 @@
         padding: 0 var(--dl-gutter);
     }
 
-    /* На телефоне «МАТЕРИАЛ» в две строки целиком над заголовком: при наложении вторая строка
-       пряталась за текстом и читалось «МАТЕРИ» */
-    .text--material {
-        padding-top: calc(60px + (100vw - 2 * var(--dl-gutter)) * 171.5 / 803 + 12px);
-    }
-
-    .text__bgword {
-        top: 60px;
-        width: calc(100% - 2 * var(--dl-gutter));
-    }
-
     .text__heading--custom .text__line {
         display: none;
     }
 
-    .text__heading--custom .text__custom {
+    .text__heading--custom .text__mline {
         display: block;
     }
 
