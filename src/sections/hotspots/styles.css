@@ -1,5 +1,6 @@
 .hotspots {
-    --panel: calc(405 / 1440 * 100%);
+    /* Панель как в макете: 405 из 1440; шире 1440 не растёт, фото при этом на всю ширину */
+    --panel: min(calc(405 / 1440 * 100%), 405px);
     background: var(--dl-black);
     color: var(--dl-white);
 }
