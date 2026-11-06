@@ -1,5 +1,5 @@
 .text {
-    --px: calc(min(100vw, 1440px) / 1440);
+    --px: calc(100vw / 1440);
     padding: 100px 0;
 }
 
@@ -68,8 +68,8 @@
 
 .text__word-box {
     position: absolute;
-    left: var(--dl-side);
-    right: var(--dl-side);
+    left: 0;
+    right: 0;
     bottom: 0;
     overflow: hidden;
 }
@@ -93,7 +93,7 @@
 .text__bgword {
     position: absolute;
     top: 88px;
-    left: calc(var(--dl-side) + var(--dl-gutter));
+    left: var(--dl-gutter);
     width: calc(1092 * var(--dl-wpx));
 }
 
