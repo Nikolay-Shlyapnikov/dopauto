@@ -1,0 +1,12 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "tone": {
+      "type": "string",
+      "title": "Фон",
+      "enum": ["Серый с сеткой", "Только линии"],
+      "default": "Серый с сеткой"
+    }
+  }
+}

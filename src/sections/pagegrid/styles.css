@@ -1,0 +1,22 @@
+/* Сетка лендинга на любой странице: добавьте секцию в любое место страницы.
+   Под содержимым страницы её не положить — страницу целиком заливает белый фон темы, а CSS секции
+   не может менять чужие блоки. Поэтому сетка лежит прозрачным слоем поверх всей страницы в режиме
+   «умножение»: на белом видны линии и серый тон #FAFAFA, на фото и тёмных блоках почти не видна.
+   Слой не ловит клики и прокручивается вместе со страницей (растянут на весь #app магазина) */
+.pagegrid {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    background-color: var(--dl-bg);
+    background-image:
+        linear-gradient(to right, var(--dl-grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--dl-grid) 1px, transparent 1px);
+    background-size: 90px 90px;
+    background-position: 3px 0;
+}
+
+.pagegrid--lines {
+    background-color: transparent;
+}
