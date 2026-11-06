@@ -5,10 +5,14 @@
      (карточки, фото, кнопки KIT) рисуется ПОВЕРХ сетки, линий на них нет;
    - обычный текст и белые фоны оказываются под слоем, но режим «умножение» оставляет текст
      как есть, а на белом проявляет сетку и тон #FAFAFA.
-   Клики слой пропускает */
+   Клики слой пропускает.
+   Низ слоя — метка .pagegrid-end из второй копии секции, поставленной последней перед подвалом
+   (CSS anchor): сетка кончается ровно у подвала на любом экране. Без метки или в браузере
+   без anchor() слой идёт до самого низа страницы */
 .pagegrid {
     position: absolute;
     inset: 0;
+    bottom: anchor(--dl-pagegrid-end top, 0px);
     pointer-events: none;
     mix-blend-mode: multiply;
     background-color: var(--dl-bg);
@@ -21,4 +25,9 @@
 
 .pagegrid--lines {
     background-color: transparent;
+}
+
+.pagegrid-end {
+    height: 0;
+    anchor-name: --dl-pagegrid-end;
 }
