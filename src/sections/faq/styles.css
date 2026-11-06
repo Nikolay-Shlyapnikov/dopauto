@@ -1,5 +1,6 @@
 .faq {
-    --faq-size: 10px;
+    /* В макете 10px — на сайте читается слишком мелко, взят размер основного текста лендинга */
+    --faq-size: 15px;
     padding: 50px 0 70px;
     background: #E0E0E0;
 }
@@ -25,7 +26,7 @@
 
 .faq__question {
     display: block;
-    padding: 10px 0;
+    padding: 14px 0;
     font-size: var(--faq-size);
     font-weight: 500;
     line-height: 1.4;
