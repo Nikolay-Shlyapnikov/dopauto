@@ -56,22 +56,13 @@ const expandSchema = (schema) => {
     return { ...schema, properties };
 };
 
-// Макет нарисован на 1440. Шире 1440 вёрстка растёт вместе с экраном, как в макете (и как слова AKONY):
-// каждый Npx → calc(N * var(--dl-px)), где --dl-px = 1px до 1440 и 100vw/1440 шире. Условия @media не трогаем
-const scalePx = (css) => css
-    .split("\n")
-    .map((line) => /^\s*@(media|container)/.test(line) || /--dl-px:/.test(line)
-        ? line
-        : line.replace(/(^|[^\w.-])(-?\d*\.?\d+)px\b/g, (_, pre, n) => `${pre}calc(${n} * var(--dl-px))`))
-    .join("\n");
-
 const names = process.argv.slice(2).length ? process.argv.slice(2) : fs.readdirSync(srcDir);
 for (const name of names) {
     const from = path.join(srcDir, name);
     const to = path.join(outDir, name);
     fs.mkdirSync(to, { recursive: true });
     const html = expandTemplate(fs.readFileSync(path.join(from, "template.html"), "utf8"));
-    const css = scalePx(`${base}\n${fs.readFileSync(path.join(from, "styles.css"), "utf8")}`);
+    const css = `${base}\n${fs.readFileSync(path.join(from, "styles.css"), "utf8")}`;
     const schema = expandSchema(JSON.parse(fs.readFileSync(path.join(from, "schema.json"), "utf8")));
     fs.writeFileSync(path.join(to, "template.html"), html);
     fs.writeFileSync(path.join(to, "styles.css"), css);
