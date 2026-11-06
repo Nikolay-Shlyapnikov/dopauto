@@ -9,6 +9,18 @@
     text-align: center;
 }
 
+/* Своя кнопка «В корзину» под карточкой: встроенная кнопка ya-kit-product-snippet в кастомной секции товар не добавляла */
+.hits__card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+}
+
+.hits__control {
+    margin-top: auto;
+}
+
 .hits__word-box {
     position: absolute;
     left: 0;
