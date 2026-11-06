@@ -30,6 +30,8 @@
 
 .materials__slide {
     position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
     animation: dlMaterialsFadeIn 0.6s ease;
 }
 
@@ -45,8 +47,6 @@
 
 .materials__stage {
     position: relative;
-    max-width: 1440px;
-    margin: 0 auto;
     aspect-ratio: 1440 / 695;
     overflow: hidden;
 }
