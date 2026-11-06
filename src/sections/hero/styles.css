@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: max(560px, min(48.3vw, 695px));
+    /* Высота по пропорции макета 1440×695 на любой ширине: видео растёт вместе с экраном */
+    min-height: max(560px, 48.3vw);
     padding: 80px var(--dl-gutter) 200px;
     overflow: hidden;
     background: var(--dl-black);
