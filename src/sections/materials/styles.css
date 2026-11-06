@@ -68,8 +68,7 @@
     right: 0;
     bottom: 0;
     z-index: 2;
-    /* Панель как в макете: 438 из 1440; шире 1440 не растёт, фото при этом на всю ширину */
-    width: min(calc(438 / 1440 * 100%), 438px);
+    width: calc(438 / 1440 * 100%);
     min-width: 340px;
     display: grid;
     grid-template-rows: 1fr auto;
