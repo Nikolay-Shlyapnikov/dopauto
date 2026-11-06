@@ -18,6 +18,9 @@
     /* Шире 1440 вёрстка не растягивается: слова и прочее, привязанное к краям, держатся в центральных 1440px */
     /* Фото и видео на всю ширину тоже не шире 1440: по бокам остаётся фон секции */
     --dl-side: max(0px, calc((100% - 1440px) / 2));
+    /* Края фото и видео шириной 1440 растворяются в фоне секции (только на экранах шире 1440) */
+    --dl-fade: linear-gradient(to right, transparent, #000 160px, #000 calc(100% - 160px), transparent);
+    --dl-fade-left: linear-gradient(to right, transparent, #000 160px);
     position: relative;
     font-family: var(--dl-font);
     color: var(--dl-black);

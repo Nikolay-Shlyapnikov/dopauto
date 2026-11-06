@@ -184,3 +184,11 @@
         animation: none;
     }
 }
+
+/* Экран шире 1440: края фото (справа панель того же цвета, что фон) мягко уходят в фон */
+@media (min-width: 1441px) {
+    .materials__stage {
+        -webkit-mask-image: var(--dl-fade-left);
+        mask-image: var(--dl-fade-left);
+    }
+}
