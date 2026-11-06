@@ -9,6 +9,8 @@
    слой растёт целиком (прижат влево, лишнее уходит под панель), и точки остаются на своих местах */
 .hotspots__stage {
     position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     overflow: hidden;

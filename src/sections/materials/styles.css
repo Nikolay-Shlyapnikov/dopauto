@@ -45,6 +45,8 @@
 
 .materials__stage {
     position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
     aspect-ratio: 1440 / 695;
     overflow: hidden;
 }
