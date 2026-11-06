@@ -13,7 +13,7 @@
 
 .hero__media {
     position: absolute;
-    inset: 0 var(--dl-side);
+    inset: 0;
 }
 
 .hero__media--mobile {

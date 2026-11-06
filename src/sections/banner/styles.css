@@ -13,8 +13,8 @@
 
 .banner__bg {
     position: absolute;
-    inset: 0 var(--dl-side);
-    width: auto;
+    inset: 0;
+    width: 100%;
     height: 100%;
 }
 
