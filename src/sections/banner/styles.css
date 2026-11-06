@@ -126,11 +126,3 @@
         display: block;
     }
 }
-
-/* Экран шире 1440: края фото мягко уходят в фон */
-@media (min-width: 1441px) {
-    .banner__bg {
-        -webkit-mask-image: var(--dl-fade);
-        mask-image: var(--dl-fade);
-    }
-}

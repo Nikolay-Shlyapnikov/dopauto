@@ -152,11 +152,3 @@
         padding: 0 var(--dl-gutter);
     }
 }
-
-/* Экран шире 1440: края фото мягко уходят в фон */
-@media (min-width: 1441px) {
-    .hotspots__canvas {
-        -webkit-mask-image: var(--dl-fade);
-        mask-image: var(--dl-fade);
-    }
-}

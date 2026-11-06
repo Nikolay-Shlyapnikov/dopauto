@@ -140,11 +140,3 @@
 .hero__video * {
     border-radius: 0 !important;
 }
-
-/* Экран шире 1440: края видео мягко уходят в фон */
-@media (min-width: 1441px) {
-    .hero__media {
-        -webkit-mask-image: var(--dl-fade);
-        mask-image: var(--dl-fade);
-    }
-}
