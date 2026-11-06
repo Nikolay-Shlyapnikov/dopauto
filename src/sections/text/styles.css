@@ -68,8 +68,8 @@
 
 .text__word-box {
     position: absolute;
-    left: 0;
-    right: 0;
+    left: var(--dl-side);
+    right: var(--dl-side);
     bottom: 0;
     overflow: hidden;
 }
@@ -93,7 +93,7 @@
 .text__bgword {
     position: absolute;
     top: 88px;
-    left: var(--dl-gutter);
+    left: calc(var(--dl-side) + var(--dl-gutter));
     width: calc(1092 * var(--dl-wpx));
 }
 
