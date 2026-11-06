@@ -69,8 +69,7 @@
     bottom: 0;
     z-index: 2;
     width: calc(438 / 1440 * 100%);
-    /* 360: в 340 не влезало слово «ТЕРМОЭЛАСТОПЛАСТ» с отступами панели */
-    min-width: 360px;
+    min-width: 340px;
     display: grid;
     grid-template-rows: 1fr auto;
     background: #111111;
@@ -181,41 +180,5 @@
 
     .materials__slide {
         animation: none;
-    }
-}
-
-/* Компьютер: высота блока — максимум из пропорций макета и высоты панели (как в hotspots).
-   На узких экранах текст панели выше фото — блок растёт, а фото с точками растёт вместе с ним
-   (прижато влево, лишнее уходит под панель), и точки остаются на своих местах */
-@media (min-width: 768px) {
-    .materials__slide {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        overflow: hidden;
-    }
-
-    /* Распорка с пропорциями макета; align-self: start — иначе тянется по высоте панели */
-    .materials__slide::before {
-        content: '';
-        grid-area: 1 / 1;
-        align-self: start;
-        aspect-ratio: 1440 / 695;
-    }
-
-    .materials__stage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        min-width: 100%;
-    }
-
-    .materials__panel {
-        position: relative;
-        top: auto;
-        right: auto;
-        bottom: auto;
-        grid-area: 1 / 1;
-        justify-self: end;
     }
 }
